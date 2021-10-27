@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /**
  * Sample React Native App
  * https://github.com/facebook/react-native
