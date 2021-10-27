@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "expo_translationUET",
+    "slug": "expo_translationUET",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  },
+  "name": "expo_translationUET"
+}
