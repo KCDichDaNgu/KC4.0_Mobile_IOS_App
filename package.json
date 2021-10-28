@@ -21,7 +21,10 @@
     "react-native-web": "0.17.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.9"
+    "@babel/core": "^7.12.9",
+    "eslint": "^8.1.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-plugin-react": "^7.26.1"
   },
   "private": true
 }
