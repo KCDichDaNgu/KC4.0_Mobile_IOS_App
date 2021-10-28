@@ -1,10 +1,12 @@
 import React, {useCallback, useEffect, useState} from 'react';
 import {Text, View} from 'react-native';
 import {Entypo} from '@expo/vector-icons';
+import {useTranslation} from 'react-i18next';
 import * as SplashScreen from 'expo-splash-screen';
 import * as Font from 'expo-font';
 
 export default function MainScreen() {
+  const {t} = useTranslation();
   const [appIsReady, setAppIsReady] = useState(false);
 
   useEffect(() => {
@@ -47,7 +49,7 @@ export default function MainScreen() {
     <View
       style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}
       onLayout={onLayoutRootView}>
-      <Text>SplashScreen Demo! 👋</Text>
+      <Text>{t('xinChao')}</Text>
       <Entypo name="rocket" size={30} />
     </View>
   );
