@@ -18,5 +18,7 @@ module.exports = {
     'react',
   ],
   'rules': {
+    'max-len': 0,
+    'require-jsdoc': 0,
   },
 };

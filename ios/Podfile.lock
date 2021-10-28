@@ -19,7 +19,7 @@ PODS:
     - EXJSONUtils
   - Expo (43.0.1):
     - ExpoModulesCore
-  - ExpoModulesCore (0.4.5):
+  - ExpoModulesCore (0.4.6):
     - React-Core
   - EXSplashScreen (0.13.4):
     - ExpoModulesCore
@@ -577,13 +577,13 @@ SPEC CHECKSUMS:
   EXKeepAwake: 8aa32396a5972d26e75e538603aad0f032396503
   EXManifests: 50e42e01335df4e54109dee7be5a91bfd37347db
   Expo: cb542da0f7c8565a58231488066262f079eb1831
-  ExpoModulesCore: 5b6115660c3400f019f75093c061ae0d8c690f8a
+  ExpoModulesCore: eea3472f70e921feb4dd24387662cbe0b67c9f8d
   EXSplashScreen: 68390ddb65a5def66ce8cf46a1e14a9b33cdac70
   EXStructuredHeaders: 873e7f329c2f6279c1b1e0229df59c9861560b53
   EXUpdates: 964b7932e8fb332403170cb7cd438f48f6d6c64e
   EXUpdatesInterface: e1c01b4f5ec76bd1d6cc714938f9edf5ef6379b9
   FBLazyVector: e686045572151edef46010a6f819ade377dfeb4b
-  FBReactNativeSpec: 7eaf2485f00f7daa3200abec72337a74ec15c81d
+  FBReactNativeSpec: 59c2431410705d3720cf3856075dc1a71eca3d4c
   Flipper: d3da1aa199aad94455ae725e9f3aa43f3ec17021
   Flipper-DoubleConversion: 38631e41ef4f9b12861c67d17cb5518d06badc41
   Flipper-Folly: 755929a4f851b2fb2c347d533a23f191b008554c
