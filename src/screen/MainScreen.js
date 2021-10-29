@@ -1,56 +1,58 @@
-import React, {useCallback, useEffect, useState} from 'react';
-import {Text, View} from 'react-native';
-import {Entypo} from '@expo/vector-icons';
-import {useTranslation} from 'react-i18next';
-import * as SplashScreen from 'expo-splash-screen';
-import * as Font from 'expo-font';
+/* eslint-disable react/prop-types */
+import React from "react";
+import { Button, View } from "react-native";
+import { createDrawerNavigator } from "@react-navigation/drawer";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import TranslateScreen from "../screen/TranslateScreen";
+import ChooseLanguageScreen from "../screen/ChooseLanguageScreen";
+import CustomNavbar from "../components/CustomNavbar";
+import { useTranslation } from "react-i18next";
 
 export default function MainScreen() {
-  const {t} = useTranslation();
-  const [appIsReady, setAppIsReady] = useState(false);
+  const { t } = useTranslation();
 
-  useEffect(() => {
-    async function prepare() {
-      try {
-        // Keep the splash screen visible while we fetch resources
-        await SplashScreen.preventAutoHideAsync();
-        // Pre-load fonts, make any API calls you need to do here
-        await Font.loadAsync(Entypo.font);
-        // Artificially delay for two seconds to simulate a slow loading
-        // experience. Please remove this if you copy and paste the code!
-        await new Promise((resolve) => setTimeout(resolve, 2000));
-      } catch (e) {
-        console.warn(e);
-      } finally {
-        // Tell the application to render
-        setAppIsReady(true);
-      }
-    }
-
-    prepare();
-  }, []);
-
-  const onLayoutRootView = useCallback(async () => {
-    if (appIsReady) {
-      // This tells the splash screen to hide immediately! If we call this after
-      // `setAppIsReady`, then we may see a blank screen while the app is
-      // loading its initial state and rendering its first pixels. So instead,
-      // we hide the splash screen once we know the root view has already
-      // performed layout.
-      await SplashScreen.hideAsync();
-    }
-  }, [appIsReady]);
-
-  if (!appIsReady) {
-    return null;
+  function NotificationsScreen({ navigation }) {
+    return (
+      <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+        <Button onPress={() => navigation.goBack()} title="Go back home" />
+      </View>
+    );
   }
 
+  const Drawer = createDrawerNavigator();
+
+  const Stack = createNativeStackNavigator();
+
+  const Root = () => {
+    return (
+      <Drawer.Navigator
+        initialRouteName="Home"
+        screenOptions={{
+          header: (props) => <CustomNavbar {...props} />,
+        }}
+      >
+        <Drawer.Screen name="Home" component={TranslateScreen} />
+        <Drawer.Screen name="Notifications" component={NotificationsScreen} />
+      </Drawer.Navigator>
+    );
+  };
+
   return (
-    <View
-      style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}
-      onLayout={onLayoutRootView}>
-      <Text>{t('xinChao')}</Text>
-      <Entypo name="rocket" size={30} />
-    </View>
+    <Stack.Navigator
+      screenOptions={{
+        header: (props) => <CustomNavbar {...props} />,
+      }}
+    >
+      <Stack.Screen
+        name="Root"
+        component={Root}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="FromLanguage"
+        component={ChooseLanguageScreen}
+        options={{ title: t("fromLanguageScreen_dichTu") }}
+      />
+    </Stack.Navigator>
   );
 }
