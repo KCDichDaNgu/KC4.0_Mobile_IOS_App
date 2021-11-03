@@ -5,14 +5,21 @@ import { connect } from "react-redux";
 import { MaterialIcons } from "@expo/vector-icons";
 import { Title, IconButton } from "react-native-paper";
 import { styles, chooseLanguage } from "../translateScreen.styles";
-import { swapLang } from "../../../redux/features/translationSlice";
+import { swapLang, STATE } from "../../../redux/features/translationSlice";
 import { useTranslation } from "react-i18next";
 function ChooseLanguage(props) {
   const { t } = useTranslation();
   const { navigation, translationState } = props;
 
+  const isDisable = () => translationState.currentState === STATE.LOADING;
+
+  const isDisableSwap = () =>
+    translationState.currentState === STATE.LOADING ||
+    translationState.translateCode.sourceLang === null;
+
   const showFromLang = (code) => (
     <TouchableOpacity
+      disabled={isDisable()}
       onPress={() => navigation.navigate("FromLanguage", { canDetect: true })}
     >
       <View style={chooseLanguage.buttonStyleFrom}>
@@ -26,6 +33,7 @@ function ChooseLanguage(props) {
 
   const showToLang = (code) => (
     <TouchableOpacity
+      disabled={isDisable()}
       onPress={() =>
         translationState.translateCode.targetLang !== "vi"
           ? navigation.navigate("FromLanguage", { canDetect: false })
@@ -49,7 +57,7 @@ function ChooseLanguage(props) {
       <View style={chooseLanguage.iconSwitch}>
         <TouchableOpacity style={chooseLanguage.buttonSwitch}>
           <IconButton
-            disabled={translationState.translateCode.sourceLang === null}
+            disabled={isDisableSwap()}
             icon="swap-horizontal"
             size={24}
             onPress={() =>

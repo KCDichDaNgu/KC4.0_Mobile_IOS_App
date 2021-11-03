@@ -1,13 +1,32 @@
-import React from "react";
+import React, { useEffect } from "react";
 import PropTypes from "prop-types";
+import { connect } from "react-redux";
 import { View, ScrollView } from "react-native";
+import { STATE } from "../../redux/features/translationSlice";
 import { Divider } from "react-native-paper";
 import { styles } from "./translateScreen.styles";
 import ChooseLanguage from "./components/ChooseLanguage";
 import InputTranslation from "./components/InputTranslation";
+import OutputTranslation from "./components/OutputTranslation";
 
 const TranslateScreen = (props) => {
-  const { navigation } = props;
+  const { navigation, translationState } = props;
+
+  /**
+   * @description useEffect cho việc check kết quả và báo noti cho
+   * người dùng
+   */
+  useEffect(() => {
+    switch (translationState.currentState) {
+      case STATE.SUCCEEDED:
+        break;
+      case STATE.FAILED:
+        alert(translationState.err.message);
+        break;
+      default:
+        break;
+    }
+  }, [translationState.currentState]);
 
   return (
     <View style={styles.container}>
@@ -15,6 +34,7 @@ const TranslateScreen = (props) => {
         <ChooseLanguage navigation={navigation} />
         <Divider />
         <InputTranslation />
+        <OutputTranslation />
       </ScrollView>
     </View>
   );
@@ -22,6 +42,11 @@ const TranslateScreen = (props) => {
 
 TranslateScreen.propTypes = {
   navigation: PropTypes.object,
+  translationState: PropTypes.object,
 };
 
-export default TranslateScreen;
+const mapStateToProps = (state) => ({
+  translationState: state.translation,
+});
+
+export default connect(mapStateToProps)(TranslateScreen);

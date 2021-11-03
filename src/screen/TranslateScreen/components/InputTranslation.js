@@ -4,7 +4,10 @@ import { IconButton, Button, Divider } from "react-native-paper";
 import { connect } from "react-redux";
 import {
   changeSourceText,
+  changeTargetText,
   reset,
+  translateAsync,
+  STATE,
 } from "../../../redux/features/translationSlice";
 import PropTypes from "prop-types";
 import { View } from "react-native";
@@ -14,14 +17,30 @@ function InputTranslation(props) {
   const { t } = useTranslation();
   const { translationState } = props;
 
+  const handleTranslate = () => {
+    props.changeTargetText("");
+    props.translateAsync({
+      sourceText: translationState.translateText.sourceText,
+      sourceLang: translationState.translateCode.sourceLang,
+      targetLang: translationState.translateCode.targetLang,
+    });
+  };
+
+  const isDisable = () => translationState.currentState === STATE.LOADING;
+
+  const isDisableButtonTranslate = () =>
+    translationState.translateText.sourceText.trim() === "" ||
+    translationState.currentState === STATE.LOADING;
+
   return (
     <>
       <View style={textInputTranslateStyles.inputCont}>
         <View style={{ alignItems: "flex-end" }}>
           {translationState.translateText.sourceText !== "" ? (
             <IconButton
+              disabled={isDisable()}
               icon="close"
-              size={20}
+              size={24}
               onPress={() => props.reset()}
               style={{ padding: 0, margin: 0 }}
             />
@@ -29,33 +48,32 @@ function InputTranslation(props) {
         </View>
         <TextInput
           multiline
-          style={textInputTranslateStyles.inputTextStyle}
+          editable={!isDisable()}
+          style={{ fontSize: 20, flex: 1 }}
           placeholder={t("translateScreen_nhapNoiDungVanBan")}
           value={translationState.translateText.sourceText}
           onChangeText={props.changeSourceText}
         />
       </View>
-      {translationState.translateText.sourceText !== "" ? (
-        <>
-          <Divider />
-          <View
-            style={{
-              alignItems: "flex-end",
-              justifyContent: "flex-end",
-              backgroundColor: "white",
-            }}
-          >
-            <Button
-              style={{ margin: 10 }}
-              mode="contained"
-              labelStyle={{ color: "white" }}
-              onPress={() => console.log("Pressed")}
-            >
-              {t("dich")}
-            </Button>
-          </View>
-        </>
-      ) : null}
+      <Divider />
+      <View
+        style={{
+          alignItems: "flex-end",
+          justifyContent: "flex-end",
+          backgroundColor: "white",
+        }}
+      >
+        <Button
+          disabled={isDisableButtonTranslate()}
+          style={{ margin: 10 }}
+          mode="contained"
+          loading={translationState.currentState === STATE.LOADING}
+          labelStyle={{ color: "white" }}
+          onPress={handleTranslate}
+        >
+          {t("dich")}
+        </Button>
+      </View>
     </>
   );
 }
@@ -63,7 +81,9 @@ function InputTranslation(props) {
 InputTranslation.propTypes = {
   translationState: PropTypes.object,
   changeSourceText: PropTypes.func,
+  changeTargetText: PropTypes.func,
   reset: PropTypes.func,
+  translateAsync: PropTypes.func,
 };
 
 const mapStateToProps = (state) => ({
@@ -72,7 +92,9 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = {
   changeSourceText,
+  changeTargetText,
   reset,
+  translateAsync,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(InputTranslation);

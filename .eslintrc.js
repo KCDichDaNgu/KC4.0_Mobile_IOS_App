@@ -21,5 +21,6 @@ module.exports = {
     "max-len": 0,
     "require-jsdoc": 0,
     "no-undef": 2,
+    "valid-jsdoc": 0,
   },
 };
