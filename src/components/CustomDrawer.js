@@ -28,6 +28,7 @@ export const CustomDrawer = (props) => {
           <View style={styles.inner}>
             <Image
               style={styles.imageLogo}
+              // eslint-disable-next-line no-undef
               source={require("../asset/images/jsApp_assets_images_lg.png")}
             />
           </View>

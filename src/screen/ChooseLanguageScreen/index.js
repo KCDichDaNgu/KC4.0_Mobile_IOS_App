@@ -1,53 +1,135 @@
-/* eslint-disable react/prop-types */
 import React from "react";
-import { View } from "react-native";
-import { FlatList } from "react-native-gesture-handler";
+import { View, ScrollView } from "react-native";
+import { List, Subheading, Divider } from "react-native-paper";
+import { connect } from "react-redux";
 import { fromLanguageSelect } from "../TranslateScreen/translateScreen.styles";
-import { DefaultText } from "../../components/DefaultText";
+import {
+  changeSourceLang,
+  changeTargetLang,
+} from "../../redux/features/translationSlice";
 import { useTranslation } from "react-i18next";
+import PropTypes from "prop-types";
 
-export default function ToLanguageScreen(props) {
+function ToLanguageScreen(props) {
   const { t } = useTranslation();
+  const { translationState, route, navigation } = props;
   const listLanguage = [
     {
-      key: "vi",
-      text: t("fromLanguage_viet"),
-      code: "vi-VN",
+      key: "zh",
     },
-    // {
-    //   key: 'TQ',
-    //   text: 'Trung',
-    //   code: 'zh-CN',
-    // },
-    // {
-    //   key: 'KM',
-    //   text: 'Khơme',
-    //   code: 'km-KH',
-    // },
-    // {
-    //   key: 'lao',
-    //   text: 'Lào',
-    //   code: 'lo-LA',
-    // },
+    {
+      key: "en",
+    },
+    {
+      key: "km",
+    },
+    {
+      key: "lo",
+    },
   ];
+
+  const isFromLang = () => {
+    if (route.params.canDetect && translationState.isSwap) {
+      return true;
+    }
+    if (!route.params.canDetect && !translationState.isSwap) {
+      return true;
+    }
+    return false;
+  };
+
+  const onChangeText = (code) => {
+    if (route.params.canDetect) {
+      props.changeSourceLang(code);
+    } else {
+      props.changeTargetLang(code);
+    }
+    navigation.goBack();
+  };
 
   return (
     <View style={fromLanguageSelect.container}>
-      <View style={fromLanguageSelect.titleList}>
-        <DefaultText style={fromLanguageSelect.textTitleList}>
-          {t("toLanguageSelect_danhSachNgonNguDichSang")}
-        </DefaultText>
-      </View>
-      <View style={fromLanguageSelect.selectLanguage}>
-        <View>
-          <FlatList
-            // eslint-disable-next-line no-unused-vars
-            keyExtractor={(listItem) => listItem.key}
-            data={listLanguage}
-            renderItem={({ item }) => <View></View>}
-          />
-        </View>
-      </View>
+      <ScrollView>
+        {route.params.canDetect ? (
+          <>
+            <List.Item
+              title={t("fromLanguageSelect_tuDongPhatHienNgonNgu")}
+              left={(props) =>
+                translationState.translateCode.sourceLang === null ? (
+                  <List.Icon {...props} icon="check" />
+                ) : (
+                  <List.Icon {...props} icon="google-translate" />
+                )
+              }
+              onPress={() => {
+                props.changeSourceLang(null);
+                navigation.goBack();
+              }}
+            />
+            <Divider />
+          </>
+        ) : null}
+        <List.Item
+          title={
+            <Subheading style={{ color: "#676464" }}>
+              {t("toLanguageSelect_danhSachNgonNguDichSang")}
+            </Subheading>
+          }
+        />
+        {isFromLang() ? (
+          <>
+            {listLanguage.map((item) => (
+              <List.Item
+                key={item.key}
+                title={t(item.key)}
+                left={(props) =>
+                  translationState.translateCode.targetLang === item.key ||
+                  translationState.translateCode.sourceLang === item.key ? (
+                    <List.Icon {...props} icon="check" />
+                  ) : (
+                    <List.Icon {...props} />
+                  )
+                }
+                onPress={() => onChangeText(item.key)}
+              />
+            ))}
+          </>
+        ) : (
+          <>
+            <List.Item
+              title={t("vi")}
+              left={(props) =>
+                translationState.translateCode.targetLang === "vi" ||
+                translationState.translateCode.sourceLang === "vi" ? (
+                  <List.Icon {...props} icon="check" />
+                ) : (
+                  <List.Icon {...props} />
+                )
+              }
+              onPress={() => onChangeText("vi")}
+            />
+          </>
+        )}
+      </ScrollView>
     </View>
   );
 }
+
+ToLanguageScreen.propTypes = {
+  route: PropTypes.object,
+  navigation: PropTypes.object,
+  translationState: PropTypes.object,
+  changeSourceLang: PropTypes.func,
+  changeTargetLang: PropTypes.func,
+};
+
+const mapStateToProps = (state) => ({
+  translationState: state.translation,
+});
+
+const mapDispatchToProps = {
+  changeSourceLang,
+  changeTargetLang,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ToLanguageScreen);

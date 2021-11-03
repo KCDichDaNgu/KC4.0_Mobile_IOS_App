@@ -32,7 +32,6 @@ export const styles = StyleSheet.create({
     // marginRight: 'auto',
   },
   chooseLanguageCont: {
-    flex: 6,
     backgroundColor: "white",
     flexDirection: "row",
   },
@@ -87,11 +86,11 @@ export const chooseLanguage = StyleSheet.create({
   text: {
     paddingRight: 5,
     color: "#000",
-    fontSize: 15,
   },
 });
 export const fromLanguageSelect = StyleSheet.create({
   container: {
+    flex: 1,
     backgroundColor: "#fff",
   },
   detectLanguage: {
@@ -129,9 +128,10 @@ export const textInputTranslateStyles = StyleSheet.create({
   inputCont: {
     // borderColor: 'blue',
     // borderWidth: 2,
+    flex: 1,
+    paddingVertical: 10,
+    paddingHorizontal: 15,
     backgroundColor: "white",
-    flexGrow: 1,
-    justifyContent: "center",
     flexDirection: "column",
     minHeight: 200,
   },
@@ -162,16 +162,11 @@ export const textInputTranslateStyles = StyleSheet.create({
     // height: '70%',
     minHeight: 150,
     flexDirection: "row",
-    justifyContent: "flex-start",
     marginRight: 18,
     marginLeft: 18,
   },
   inputTextStyle: {
-    // borderWidth: 2,
-    // borderColor: 'red',
     fontSize: 20,
-    height: 100,
-    opacity: 0.5,
   },
 });
 export const textInputTranslatePopupStyles = StyleSheet.create({

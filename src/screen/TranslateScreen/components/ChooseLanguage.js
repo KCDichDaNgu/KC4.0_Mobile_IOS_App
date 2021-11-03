@@ -1,74 +1,85 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { TouchableOpacity, View, Animated, Easing } from "react-native";
+import { TouchableOpacity, View } from "react-native";
+import { connect } from "react-redux";
 import { MaterialIcons } from "@expo/vector-icons";
-import { DefaultText } from "../../../components/DefaultText";
+import { Title, IconButton } from "react-native-paper";
 import { styles, chooseLanguage } from "../translateScreen.styles";
+import { swapLang } from "../../../redux/features/translationSlice";
+import { useTranslation } from "react-i18next";
+function ChooseLanguage(props) {
+  const { t } = useTranslation();
+  const { navigation, translationState } = props;
 
-export default function ChooseLanguage(props) {
-  const { navigation } = props;
-  // Reenable this in the future when we can switch language
-  const opacity = new Animated.Value(0);
-  // eslint-disable-next-line no-unused-vars
-  const animate = () => {
-    opacity.setValue(0);
-    Animated.timing(opacity, {
-      toValue: 1,
-      duration: 400,
-      easing: Easing.linear,
-      useNativeDriver: false,
-    }).start(() => switchLanguage());
-  };
-  // eslint-disable-next-line no-unused-vars
-  const size = opacity.interpolate({
-    inputRange: [0, 1],
-    outputRange: ["0deg", "180deg"],
-  });
-  const switchLanguage = () => {
-    // const tmpCode = fromCodeLanguage;
-    // setFromCodeLanguage(toCodeLanguage);
-    // setToCodeLanguage(tmpCode);
-  };
-
-  const fromLanguageView = () => (
-    <TouchableOpacity onPress={() => navigation.navigate("FromLanguage", {})}>
+  const showFromLang = (code) => (
+    <TouchableOpacity
+      onPress={() => navigation.navigate("FromLanguage", { canDetect: true })}
+    >
       <View style={chooseLanguage.buttonStyleFrom}>
-        <DefaultText style={chooseLanguage.text}>Hello</DefaultText>
+        <Title style={chooseLanguage.text}>
+          {code ? t(code) : t("phatHienNgonNgu")}
+        </Title>
         <MaterialIcons name="arrow-drop-down" size={24} color="black" />
       </View>
     </TouchableOpacity>
   );
 
-  const toLanguageView = () => (
-    <TouchableOpacity onPress={() => navigation.navigate("FromLanguage", {})}>
+  const showToLang = (code) => (
+    <TouchableOpacity
+      onPress={() =>
+        translationState.translateCode.targetLang !== "vi"
+          ? navigation.navigate("FromLanguage", { canDetect: false })
+          : null
+      }
+    >
       <View style={chooseLanguage.buttonStyleFrom}>
-        <DefaultText style={chooseLanguage.text}>Hello</DefaultText>
-        <MaterialIcons name="arrow-drop-down" size={24} color="black" />
+        <Title style={chooseLanguage.text}>{t(code)}</Title>
+        {translationState.translateCode.targetLang !== "vi" ? (
+          <MaterialIcons name="arrow-drop-down" size={24} color="black" />
+        ) : null}
       </View>
     </TouchableOpacity>
   );
 
   return (
     <View style={styles.chooseLanguageCont}>
-      <View style={chooseLanguage.fromLanguage}>{fromLanguageView()}</View>
+      <View style={chooseLanguage.fromLanguage}>
+        {showFromLang(translationState.translateCode.sourceLang)}
+      </View>
       <View style={chooseLanguage.iconSwitch}>
-        <TouchableOpacity
-          onPress={() => {
-            // animate();
-          }}
-          style={chooseLanguage.buttonSwitch}
-        >
-          <Animated.View style={{ transform: [{ rotate: size }] }}>
-            {/* <Icon name="exchange" type="font-awesome" size={18} color="#000" /> */}
-            <MaterialIcons name="swap-horiz" size={24} color="black" />
-          </Animated.View>
+        <TouchableOpacity style={chooseLanguage.buttonSwitch}>
+          <IconButton
+            disabled={translationState.translateCode.sourceLang === null}
+            icon="swap-horizontal"
+            size={24}
+            onPress={() =>
+              props.swapLang({
+                sourceLang: translationState.translateCode.sourceLang,
+                targetLang: translationState.translateCode.targetLang,
+              })
+            }
+          />
         </TouchableOpacity>
       </View>
-      <View style={chooseLanguage.toLanguage}>{toLanguageView()}</View>
+      <View style={chooseLanguage.toLanguage}>
+        {showToLang(translationState.translateCode.targetLang)}
+      </View>
     </View>
   );
 }
 
 ChooseLanguage.propTypes = {
   navigation: PropTypes.object,
+  translationState: PropTypes.object,
+  swapLang: PropTypes.func,
 };
+
+const mapStateToProps = (state) => ({
+  translationState: state.translation,
+});
+
+const mapDispatchToProps = {
+  swapLang,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ChooseLanguage);

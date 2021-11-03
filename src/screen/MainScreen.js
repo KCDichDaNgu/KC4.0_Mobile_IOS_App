@@ -5,7 +5,6 @@ import { createDrawerNavigator } from "@react-navigation/drawer";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import TranslateScreen from "../screen/TranslateScreen";
 import ChooseLanguageScreen from "../screen/ChooseLanguageScreen";
-import CustomNavbar from "../components/CustomNavbar";
 import { useTranslation } from "react-i18next";
 
 export default function MainScreen() {
@@ -25,12 +24,7 @@ export default function MainScreen() {
 
   const Root = () => {
     return (
-      <Drawer.Navigator
-        initialRouteName="Home"
-        screenOptions={{
-          header: (props) => <CustomNavbar {...props} />,
-        }}
-      >
+      <Drawer.Navigator initialRouteName="Home">
         <Drawer.Screen name="Home" component={TranslateScreen} />
         <Drawer.Screen name="Notifications" component={NotificationsScreen} />
       </Drawer.Navigator>
@@ -38,11 +32,7 @@ export default function MainScreen() {
   };
 
   return (
-    <Stack.Navigator
-      screenOptions={{
-        header: (props) => <CustomNavbar {...props} />,
-      }}
-    >
+    <Stack.Navigator>
       <Stack.Screen
         name="Root"
         component={Root}

@@ -1,11 +1,28 @@
 import React, { useState, useCallback, useEffect } from "react";
 import MainScreen from "./src/screen/MainScreen";
 import "./src/config/i18n";
-import { NavigationContainer } from "@react-navigation/native";
+import {
+  NavigationContainer,
+  DefaultTheme as NavDefaultTheme,
+} from "@react-navigation/native";
+import { DefaultTheme, Provider as PaperProvider } from "react-native-paper";
+import { Provider } from "react-redux";
+import store from "./src/redux/store";
 import { View } from "react-native";
 import { Entypo } from "@expo/vector-icons";
 import * as SplashScreen from "expo-splash-screen";
 import * as Font from "expo-font";
+
+const theme = {
+  ...DefaultTheme,
+  ...NavDefaultTheme,
+  colors: {
+    ...DefaultTheme.colors,
+    ...NavDefaultTheme.colors,
+    primary: "#3498db",
+    accent: "#f1c40f",
+  },
+};
 
 export default function App() {
   const [appIsReady, setAppIsReady] = useState(false);
@@ -47,9 +64,13 @@ export default function App() {
   }
 
   return (
-    <NavigationContainer>
-      <View onLayout={onLayoutRootView} />
-      <MainScreen />
-    </NavigationContainer>
+    <Provider store={store}>
+      <PaperProvider theme={theme}>
+        <NavigationContainer theme={theme}>
+          <View onLayout={onLayoutRootView} />
+          <MainScreen />
+        </NavigationContainer>
+      </PaperProvider>
+    </Provider>
   );
 }
