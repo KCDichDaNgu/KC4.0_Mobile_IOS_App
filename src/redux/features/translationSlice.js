@@ -1,12 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import * as axiosHelper from "../../helpers/axiosHelpers";
-
-const STATUS = {
-  TRANSLATING: "translating",
-  TRANSLATED: "translated",
-  CANCELLED: "cancelled",
-  DETECTING: "detecting",
-};
+import { translate, translateAndDetect } from "../../helpers/translationHelper";
 
 export const STATE = {
   INIT: "init",
@@ -43,64 +36,17 @@ export const translateAsync = createAsyncThunk(
   }
 );
 
-/**
- * @description Nhập từ input => đợi 1 khoảng thời gian đẻ nhận text
- * ! Tránh việc gọi API ko cần thiêt và liên tục
- */
-const translate = async (body) => {
-  try {
-    const postTranslationResult = await axiosHelper.postTranslate(body);
-    const getTranslationHistoryResult = await recursiveCheckStatus(
-      postTranslationResult.data.translationHitoryId,
-      postTranslationResult.data.taskId
-    );
-    if (getTranslationHistoryResult.message === "Time Out") {
-      throw new Error(getTranslationHistoryResult.message);
-    } else {
-      const getTranslationResult = await axiosHelper.getTranslateResult(
-        getTranslationHistoryResult.data.resultUrl
-      );
-      if (getTranslationResult.status === "closed") {
-        throw new Error(getTranslationHistoryResult.message);
-      } else {
-        return getTranslationResult;
-      }
+export const translateAndDetectAsync = createAsyncThunk(
+  "translation/translateAndDetect",
+  async (body) => {
+    try {
+      const response = await translateAndDetect(body);
+      return response;
+    } catch (e) {
+      throw new Error(e);
     }
-  } catch (e) {
-    throw new Error(e);
   }
-};
-
-/**
- * @description Do BE bắt fai kiểm tra status
- * nên sẽ gọi lại API khi nào status được dịch.
- * Đặt thời gian mỗi lần gọi lại API
- * ! => tránh việc gọi liên tục và ko cần thiết
- */
-const recursiveCheckStatus = async (translationHistoryId, taskId) => {
-  const getTranslationHistoryResult =
-    await axiosHelper.getTranslateHistoryGetSingle({
-      translationHistoryId,
-      taskId,
-    });
-  if (getTranslationHistoryResult.data.status === STATUS.TRANSLATING) {
-    return new Promise((resolve, reject) => {
-      setTimeout(async () => {
-        try {
-          const getTranslationHistoryResult = await recursiveCheckStatus(
-            translationHistoryId,
-            taskId
-          );
-          resolve(getTranslationHistoryResult);
-        } catch (e) {
-          reject(e);
-        }
-      }, 1000);
-    });
-  } else {
-    return getTranslationHistoryResult;
-  }
-};
+);
 
 export const translationSlice = createSlice({
   name: "translation",
@@ -124,7 +70,10 @@ export const translationSlice = createSlice({
       state.translateText.targetText = action.payload;
       state.translateText.editTargetText = action.payload;
     },
-    reset: () => initialState,
+    reset: (state) => {
+      state.translateText.sourceText = "";
+      state.translateText.targetText = "";
+    },
   },
   extraReducers: {
     [translateAsync.rejected]: (state, action) => {
@@ -138,6 +87,20 @@ export const translationSlice = createSlice({
       state.err = null;
     },
     [translateAsync.pending]: (state) => {
+      state.currentState = STATE.LOADING;
+    },
+    [translateAndDetectAsync.rejected]: (state, action) => {
+      state.currentState = STATE.FAILED;
+      state.err = action.error;
+    },
+    [translateAndDetectAsync.fulfilled]: (state, action) => {
+      state.currentState = STATE.SUCCEEDED;
+      state.translateCode.sourceLang = action.payload.source_lang;
+      state.translateText.targetText = action.payload.target_text;
+      state.translateText.editTargetText = action.payload.target_text;
+      state.err = null;
+    },
+    [translateAndDetectAsync.pending]: (state) => {
       state.currentState = STATE.LOADING;
     },
   },

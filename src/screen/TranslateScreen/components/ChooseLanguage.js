@@ -5,7 +5,12 @@ import { connect } from "react-redux";
 import { MaterialIcons } from "@expo/vector-icons";
 import { Title, IconButton } from "react-native-paper";
 import { styles, chooseLanguage } from "../translateScreen.styles";
-import { swapLang, STATE } from "../../../redux/features/translationSlice";
+import {
+  swapLang,
+  STATE,
+  changeSourceText,
+  changeTargetText,
+} from "../../../redux/features/translationSlice";
 import { useTranslation } from "react-i18next";
 function ChooseLanguage(props) {
   const { t } = useTranslation();
@@ -30,6 +35,17 @@ function ChooseLanguage(props) {
       </View>
     </TouchableOpacity>
   );
+
+  const handleSwap = () => {
+    props.swapLang({
+      sourceLang: translationState.translateCode.sourceLang,
+      targetLang: translationState.translateCode.targetLang,
+    });
+    if (translationState.translateText.targetText !== "") {
+      props.changeSourceText(translationState.translateText.targetText);
+      props.changeTargetText(translationState.translateText.sourceText);
+    }
+  };
 
   const showToLang = (code) => (
     <TouchableOpacity
@@ -60,12 +76,7 @@ function ChooseLanguage(props) {
             disabled={isDisableSwap()}
             icon="swap-horizontal"
             size={24}
-            onPress={() =>
-              props.swapLang({
-                sourceLang: translationState.translateCode.sourceLang,
-                targetLang: translationState.translateCode.targetLang,
-              })
-            }
+            onPress={handleSwap}
           />
         </TouchableOpacity>
       </View>
@@ -80,6 +91,8 @@ ChooseLanguage.propTypes = {
   navigation: PropTypes.object,
   translationState: PropTypes.object,
   swapLang: PropTypes.func,
+  changeSourceText: PropTypes.func,
+  changeTargetText: PropTypes.func,
 };
 
 const mapStateToProps = (state) => ({
@@ -88,6 +101,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = {
   swapLang,
+  changeSourceText,
+  changeTargetText,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ChooseLanguage);

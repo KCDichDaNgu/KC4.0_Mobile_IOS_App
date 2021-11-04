@@ -7,6 +7,7 @@ import {
   changeTargetText,
   reset,
   translateAsync,
+  translateAndDetectAsync,
   STATE,
 } from "../../../redux/features/translationSlice";
 import PropTypes from "prop-types";
@@ -19,11 +20,18 @@ function InputTranslation(props) {
 
   const handleTranslate = () => {
     props.changeTargetText("");
-    props.translateAsync({
-      sourceText: translationState.translateText.sourceText,
-      sourceLang: translationState.translateCode.sourceLang,
-      targetLang: translationState.translateCode.targetLang,
-    });
+    if (translationState.translateCode.sourceLang) {
+      props.translateAsync({
+        sourceText: translationState.translateText.sourceText,
+        sourceLang: translationState.translateCode.sourceLang,
+        targetLang: translationState.translateCode.targetLang,
+      });
+    } else {
+      props.translateAndDetectAsync({
+        sourceText: translationState.translateText.sourceText,
+        targetLang: translationState.translateCode.targetLang,
+      });
+    }
   };
 
   const isDisable = () => translationState.currentState === STATE.LOADING;
@@ -84,6 +92,7 @@ InputTranslation.propTypes = {
   changeTargetText: PropTypes.func,
   reset: PropTypes.func,
   translateAsync: PropTypes.func,
+  translateAndDetectAsync: PropTypes.func,
 };
 
 const mapStateToProps = (state) => ({
@@ -95,6 +104,7 @@ const mapDispatchToProps = {
   changeTargetText,
   reset,
   translateAsync,
+  translateAndDetectAsync,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(InputTranslation);

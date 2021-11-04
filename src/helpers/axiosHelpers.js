@@ -84,3 +84,35 @@ export const getTranslateHistory = (params) => {
       });
   });
 };
+
+// sample data
+// { "sourceTexr": "string",
+export const detectLangInstant = (body) => {
+  return new Promise((resolve, reject) => {
+    axiosDefault
+      .post("detect-lang", body)
+      .then((result) => {
+        resolve(result.data);
+      })
+      .catch((error) => {
+        reject(error);
+      });
+  });
+};
+
+// sample data
+// { "translationHistoryId": "string", "taskId": "string",
+export const getDetectionHistoryGetSingle = (params) => {
+  return new Promise((resolve, reject) => {
+    axiosDefault
+      .get("lang-detection-history/get-single", {
+        params,
+      })
+      .then((result) => {
+        resolve(result.data);
+      })
+      .catch((error) => {
+        reject(error);
+      });
+  });
+};
