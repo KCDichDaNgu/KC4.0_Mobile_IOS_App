@@ -116,3 +116,23 @@ export const getDetectionHistoryGetSingle = (params) => {
       });
   });
 };
+
+export const translateFile = (body) => {
+  return new Promise((resolve, reject) => {
+    axiosDefault({
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+      method: "POST",
+      url: "translate_f",
+      data: body,
+      // body: body,
+    })
+      .then((result) => {
+        resolve(result.data);
+      })
+      .catch((error) => {
+        reject(error);
+      });
+  });
+};

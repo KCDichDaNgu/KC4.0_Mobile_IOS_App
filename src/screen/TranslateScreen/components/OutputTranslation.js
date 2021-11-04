@@ -1,16 +1,27 @@
 import React from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { TextInput } from "react-native";
+import { TextInput, TouchableOpacity, Linking } from "react-native";
 import * as Clipboard from "expo-clipboard";
-import { Card, useTheme, IconButton } from "react-native-paper";
-
+import { Card, useTheme, IconButton, Text } from "react-native-paper";
 function ResultTranslateBox(props) {
   const { colors } = useTheme();
   const { translationState } = props;
 
   const copyToClipboard = () => {
     Clipboard.setString(translationState.translateText.targetText);
+  };
+
+  const handleDownload = async () => {
+    const url = `http://nmtuet.ddns.net:8000/${translationState.outputFile.target_file_full_path}`;
+    const supported = await Linking.canOpenURL(url);
+    if (supported) {
+      // Opening the link with some app, if the URL scheme is "http" the web link should be opened
+      // by some browser in the mobile
+      await Linking.openURL(url);
+    } else {
+      alert(`Don't know how to open this URL: ${url}`);
+    }
   };
 
   return (
@@ -33,6 +44,17 @@ function ResultTranslateBox(props) {
               onPress={copyToClipboard}
             />
           </Card.Actions>
+        </Card>
+      ) : null}
+      {translationState.outputFile ? (
+        <Card style={{ margin: 8, backgroundColor: colors.primary }}>
+          <Card.Content>
+            <TouchableOpacity onPress={handleDownload}>
+              <Text>
+                {`http://nmtuet.ddns.net:8000/${translationState.outputFile.target_file_full_path}`}
+              </Text>
+            </TouchableOpacity>
+          </Card.Content>
         </Card>
       ) : null}
     </>

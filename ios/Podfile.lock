@@ -8,6 +8,8 @@ PODS:
     - ExpoModulesCore
   - EXConstants (12.1.3):
     - ExpoModulesCore
+  - EXDocumentPicker (10.0.3):
+    - ExpoModulesCore
   - EXErrorRecovery (3.0.3):
     - ExpoModulesCore
   - EXFileSystem (13.0.3):
@@ -395,6 +397,7 @@ DEPENDENCIES:
   - EXApplication (from `../node_modules/expo-application/ios`)
   - EXClipboard (from `../node_modules/expo-clipboard/ios`)
   - EXConstants (from `../node_modules/expo-constants/ios`)
+  - EXDocumentPicker (from `../node_modules/expo-document-picker/ios`)
   - EXErrorRecovery (from `../node_modules/expo-error-recovery/ios`)
   - EXFileSystem (from `../node_modules/expo-file-system/ios`)
   - EXFont (from `../node_modules/expo-font/ios`)
@@ -485,6 +488,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/expo-clipboard/ios"
   EXConstants:
     :path: "../node_modules/expo-constants/ios"
+  EXDocumentPicker:
+    :path: "../node_modules/expo-document-picker/ios"
   EXErrorRecovery:
     :path: "../node_modules/expo-error-recovery/ios"
   EXFileSystem:
@@ -581,6 +586,7 @@ SPEC CHECKSUMS:
   EXApplication: 0e15240e4d125b62f1cae48759ffbbd32b9286a6
   EXClipboard: ead52260683fc856e58f5cc70f5ea5999bb9c049
   EXConstants: 6d585d93723b18d7a8c283591a335609e3bc153e
+  EXDocumentPicker: 9329610c4fb22531093cecb0b617222c71bda77b
   EXErrorRecovery: ac2622400a32be84604591f70d0efff416e4b9a2
   EXFileSystem: 99aac7962c11c680681819dd9cbca24e20e5b1e7
   EXFont: 2e1c6fe726d008a039db80df95f48b4921b7fe59

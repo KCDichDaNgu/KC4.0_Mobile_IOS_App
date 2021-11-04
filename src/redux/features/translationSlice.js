@@ -1,5 +1,9 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { translate, translateAndDetect } from "../../helpers/translationHelper";
+import {
+  translate,
+  translateAndDetect,
+  translateFile,
+} from "../../helpers/translationHelper";
 
 export const STATE = {
   INIT: "init",
@@ -20,6 +24,8 @@ const initialState = {
     targetText: "",
     editTargetText: "",
   },
+  inputFile: null,
+  outputFile: null,
   isSwap: true, // True: en, zh, lo, km => vn , False: vn => en, zh, lo, km
   err: null,
 };
@@ -41,6 +47,18 @@ export const translateAndDetectAsync = createAsyncThunk(
   async (body) => {
     try {
       const response = await translateAndDetect(body);
+      return response;
+    } catch (e) {
+      throw new Error(e);
+    }
+  }
+);
+
+export const translateFileAsync = createAsyncThunk(
+  "translation/translateFile",
+  async (body) => {
+    try {
+      const response = await translateFile(body);
       return response;
     } catch (e) {
       throw new Error(e);
@@ -73,6 +91,14 @@ export const translationSlice = createSlice({
     reset: (state) => {
       state.translateText.sourceText = "";
       state.translateText.targetText = "";
+      state.inputFile = null;
+      state.outputFile = null;
+    },
+    changeInputFile: (state, action) => {
+      state.inputFile = action.payload;
+    },
+    changeOutputFile: (state, action) => {
+      state.outputFile = action.payload;
     },
   },
   extraReducers: {
@@ -103,6 +129,18 @@ export const translationSlice = createSlice({
     [translateAndDetectAsync.pending]: (state) => {
       state.currentState = STATE.LOADING;
     },
+    [translateFileAsync.rejected]: (state, action) => {
+      state.currentState = STATE.FAILED;
+      state.err = action.error;
+    },
+    [translateFileAsync.fulfilled]: (state, action) => {
+      state.currentState = STATE.SUCCEEDED;
+      state.outputFile = action.payload;
+      state.err = null;
+    },
+    [translateFileAsync.pending]: (state) => {
+      state.currentState = STATE.LOADING;
+    },
   },
 });
 
@@ -112,6 +150,8 @@ export const {
   swapLang,
   changeSourceText,
   changeTargetText,
+  changeInputFile,
+  changeOutputFile,
   reset,
 } = translationSlice.actions;
 

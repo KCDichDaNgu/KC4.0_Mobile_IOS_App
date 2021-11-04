@@ -147,3 +147,31 @@ const recursiveDetectionCheckStatus = async (translationHistoryId, taskId) => {
     return getDetectionHistoryResult;
   }
 };
+
+/**
+ * @description Nhập từ input => đợi 1 khoảng thời gian đẻ nhận text
+ * ! Tránh việc gọi API ko cần thiêt và liên tục
+ */
+export const translateFile = async (body) => {
+  try {
+    const postTranslationResult = await axiosHelper.translateFile(body);
+    const getTranslationFileResult = await recursiveCheckStatus(
+      postTranslationResult.data.translationHitoryId,
+      postTranslationResult.data.taskId
+    );
+    if (getTranslationFileResult.message === "Time Out") {
+      throw new Error(getTranslationFileResult.message);
+    } else {
+      const getTranslationResult = await axiosHelper.getTranslateResult(
+        getTranslationFileResult.data.resultUrl
+      );
+      if (getTranslationResult.status === "closed") {
+        throw new Error(getTranslationResult.message);
+      } else {
+        return getTranslationResult;
+      }
+    }
+  } catch (error) {
+    throw new Error(error);
+  }
+};
