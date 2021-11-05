@@ -1,5 +1,11 @@
 import axios from "axios";
 
+let CancelSource = axios.CancelToken.source();
+
+export const cancelRequest = () => {
+  CancelSource.cancel("cancel");
+};
+
 const axiosDefault = axios.create({
   // baseURL: 'http://nmtuet.ddns.net:1710/',
   baseURL: "http://nmtuet.ddns.net:8000/",
@@ -15,9 +21,25 @@ axiosDefault.interceptors.request.use(
     // if (acc_token) {
     //   config.headers.Authorization = `${acc_token}`;
     // }
+    config.cancelToken = CancelSource.token;
     return config;
   },
   (error) => Promise.reject(error)
+);
+
+// Add a response interceptor
+axiosDefault.interceptors.response.use(
+  function (response) {
+    // Any status code that lie within the range of 2xx cause this function to trigger
+    // Do something with response data
+    return response;
+  },
+  function (error) {
+    if (axios.isCancel(error)) {
+      CancelSource = axios.CancelToken.source();
+    }
+    return Promise.reject(error);
+  }
 );
 
 // sample data

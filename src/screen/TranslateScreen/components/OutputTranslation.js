@@ -3,8 +3,10 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { TextInput, TouchableOpacity, Linking } from "react-native";
 import * as Clipboard from "expo-clipboard";
+import { useTranslation } from "react-i18next";
 import { Card, useTheme, IconButton, Text } from "react-native-paper";
 function ResultTranslateBox(props) {
+  const { t } = useTranslation();
   const { colors } = useTheme();
   const { translationState } = props;
 
@@ -21,6 +23,23 @@ function ResultTranslateBox(props) {
       await Linking.openURL(url);
     } else {
       alert(`Don't know how to open this URL: ${url}`);
+    }
+  };
+
+  const fileOutput = () => {
+    switch (translationState.outputFile.target_lang) {
+      case "vi":
+        return t("anVaoDayDeTaiTaiLieuTiengViet");
+      case "en":
+        return t("anVaoDayDeTaiTaiLieuTiengAnh");
+      case "zh":
+        return t("anVaoDayDeTaiTaiLieuTiengTrung");
+      case "lo":
+        return t("anVaoDayDeTaiTaiLieuTiengLao");
+      case "km":
+        return t("anVaoDayDeTaiTaiLieuTiengKhome");
+      default:
+        return t("anVaoDayDeTaiTaiLieu");
     }
   };
 
@@ -50,8 +69,8 @@ function ResultTranslateBox(props) {
         <Card style={{ margin: 8, backgroundColor: colors.primary }}>
           <Card.Content>
             <TouchableOpacity onPress={handleDownload}>
-              <Text>
-                {`http://nmtuet.ddns.net:8000/${translationState.outputFile.target_file_full_path}`}
+              <Text style={{ textDecorationLine: "underline" }}>
+                {fileOutput()}
               </Text>
             </TouchableOpacity>
           </Card.Content>

@@ -1,5 +1,5 @@
 import React from "react";
-import { TextInput } from "react-native";
+import { TextInput, TouchableOpacity } from "react-native";
 import { IconButton, Button, Divider, Text, Title } from "react-native-paper";
 import { MaterialIcons } from "@expo/vector-icons";
 import { connect } from "react-redux";
@@ -18,6 +18,7 @@ import PropTypes from "prop-types";
 import { View } from "react-native";
 import { useTranslation } from "react-i18next";
 import { textInputTranslateStyles } from "../translateScreen.styles";
+import { cancelRequest } from "../../../helpers/axiosHelpers";
 import * as DocumentPicker from "expo-document-picker";
 function InputTranslation(props) {
   const { t } = useTranslation();
@@ -27,7 +28,11 @@ function InputTranslation(props) {
     props.changeTargetText("");
     if (translationState.inputFile) {
       const formData = new FormData();
-      formData.append("file", translationState.inputFile);
+      formData.append("file", {
+        uri: translationState.inputFile.uri,
+        type: translationState.inputFile.mimeType,
+        name: translationState.inputFile.name,
+      });
       formData.append("sourceLang", translationState.translateCode.sourceLang);
       formData.append("targetLang", translationState.translateCode.targetLang);
       props.translateFileAsync(formData);
@@ -50,7 +55,6 @@ function InputTranslation(props) {
   const handleGetFiles = async () => {
     const result = await DocumentPicker.getDocumentAsync({
       type: [
-        "application/msword",
         "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
       ],
     });
@@ -95,7 +99,11 @@ function InputTranslation(props) {
           <TextInput
             multiline
             editable={!isDisable()}
-            style={{ fontSize: 20, flex: 1 }}
+            style={{
+              fontSize: 20,
+              flex: 1,
+              textAlignVertical: "top",
+            }}
             placeholder={t("translateScreen_nhapNoiDungVanBan")}
             value={translationState.translateText.sourceText}
             onChangeText={props.changeSourceText}
@@ -111,8 +119,7 @@ function InputTranslation(props) {
           backgroundColor: "white",
         }}
       >
-        <Button
-          mode="text"
+        <TouchableOpacity
           disabled={isDisable()}
           style={{ opacity: isDisable() ? 0.5 : 1 }}
           onPress={handleGetFiles}
@@ -127,7 +134,7 @@ function InputTranslation(props) {
             <MaterialIcons name="source" size={24} color="black" />
             <Text>{t("chonTaiLieu")}</Text>
           </View>
-        </Button>
+        </TouchableOpacity>
         <Button
           disabled={isDisableButtonTranslate()}
           style={{ margin: 10 }}
@@ -138,6 +145,17 @@ function InputTranslation(props) {
         >
           {t("dich")}
         </Button>
+        {translationState.currentState === STATE.LOADING ? (
+          <Button
+            style={{ marginVertical: 10, marginHorizontal: 5 }}
+            mode="contained"
+            color="red"
+            labelStyle={{ color: "white" }}
+            onPress={cancelRequest}
+          >
+            {t("huy")}
+          </Button>
+        ) : null}
       </View>
     </>
   );

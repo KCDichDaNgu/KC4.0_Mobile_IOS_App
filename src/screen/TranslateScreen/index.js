@@ -21,7 +21,9 @@ const TranslateScreen = (props) => {
       case STATE.SUCCEEDED:
         break;
       case STATE.FAILED:
-        alert(translationState.err.message);
+        if (!translationState.err.message.includes("cancel")) {
+          alert(translationState.err.message);
+        }
         break;
       default:
         break;

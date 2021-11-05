@@ -19,6 +19,13 @@
   "dich": "Dịch",
   "dong": "Đóng",
   "chonTaiLieu": "Chọn tài liệu",
+  "huy": "Hủy",
+  "anVaoDayDeTaiTaiLieu": "Ấn vào đây để tải tài liệu",
+  "anVaoDayDeTaiTaiLieuTiengAnh": "Ấn vào đây để tải tài liệu tiếng Anh",
+  "anVaoDayDeTaiTaiLieuTiengTrung": "Ấn vào đây để tải tài liệu tiếng Trung",
+  "anVaoDayDeTaiTaiLieuTiengViet": "Ấn vào đây để tải tài liệu tiếng Việt",
+  "anVaoDayDeTaiTaiLieuTiengLao": "Ấn vào đây để tải tài liệu tiếng Lào",
+  "anVaoDayDeTaiTaiLieuTiengKhome": "Ấn vào đây để tải tài liệu tiếng Khơme",
   
   "translateScreen_nhapNoiDungVanBan": "Nhập nội dung văn bản",
   "textInputTranslatePopupScreen_nhapNoiDungVanBan": "Nhập nội dung văn bản",
