@@ -6,6 +6,13 @@
 ### 2.Run instructions for iOS:
 * yarn ios
 
+## How to build
+
+### 1. For android
+Follow [this link](https://www.instamobile.io/android-development/generate-react-native-release-build-android/) to setup key and generate ```.apk``` file
+
+### 2. For Ios
+Follow [this link](https://docs.saucelabs.com/mobile-apps/automated-testing/ipa-files/) to create ```.api``` or ```.app``` bundle
 ## How to debug
 
 Note: React native can't debug using Remote react native debugger. Following the statement from [react-hook-reanimated](https://docs.swmansion.com/react-native-reanimated/docs):

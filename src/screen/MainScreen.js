@@ -1,22 +1,14 @@
 /* eslint-disable react/prop-types */
 import React from "react";
-import { Button, View } from "react-native";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import TranslateScreen from "../screen/TranslateScreen";
 import ChooseLanguageScreen from "../screen/ChooseLanguageScreen";
 import { useTranslation } from "react-i18next";
+import { CustomDrawer } from "../components/CustomDrawer";
 
 export default function MainScreen() {
   const { t } = useTranslation();
-
-  function NotificationsScreen({ navigation }) {
-    return (
-      <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-        <Button onPress={() => navigation.goBack()} title="Go back home" />
-      </View>
-    );
-  }
 
   const Drawer = createDrawerNavigator();
 
@@ -24,9 +16,17 @@ export default function MainScreen() {
 
   const Root = () => {
     return (
-      <Drawer.Navigator initialRouteName="Home">
-        <Drawer.Screen name="Home" component={TranslateScreen} />
-        <Drawer.Screen name="Notifications" component={NotificationsScreen} />
+      <Drawer.Navigator
+        initialRouteName="Home"
+        drawerContent={(props) => <CustomDrawer {...props} />}
+      >
+        <Drawer.Screen
+          name="Home"
+          options={{
+            title: t("dich"),
+          }}
+          component={TranslateScreen}
+        />
       </Drawer.Navigator>
     );
   };

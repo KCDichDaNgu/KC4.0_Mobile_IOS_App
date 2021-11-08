@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import React from "react";
 import { View, StyleSheet, Text, Image } from "react-native";
+import { useTheme } from "react-native-paper";
 import {
   DrawerContentScrollView,
   DrawerItemList,
@@ -8,6 +9,7 @@ import {
 import { useTranslation } from "react-i18next";
 
 export const CustomDrawer = (props) => {
+  const { colors } = useTheme();
   const { t } = useTranslation();
 
   const filteredProps = {
@@ -23,7 +25,7 @@ export const CustomDrawer = (props) => {
 
   return (
     <DrawerContentScrollView {...filteredProps}>
-      <View style={styles.container}>
+      <View style={{ ...styles.container, backgroundColor: colors.primary }}>
         <View style={styles.box1}>
           <View style={styles.inner}>
             <Image
@@ -40,7 +42,6 @@ export const CustomDrawer = (props) => {
           </View>
         </View>
       </View>
-      ;
       <DrawerItemList {...filteredProps} />
     </DrawerContentScrollView>
   );

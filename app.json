@@ -1,11 +1,18 @@
 {
   "expo": {
-    "name": "expo_translationUET",
-    "slug": "expo_translationUET",
+    "name": "UET translation",
+    "slug": "uet_translation",
     "version": "1.0.0",
     "assetBundlePatterns": [
       "**/*"
-    ]
-  },
-  "name": "expo_translationUET"
+    ],
+    "ios": {
+      "bundleIdentifier": "com.kse.uettranslation",
+      "buildNumber": "1.0.0"
+    },
+    "android": {
+      "package": "com.kse.uettranslation",
+      "versionCode": 1
+    }
+  }
 }
