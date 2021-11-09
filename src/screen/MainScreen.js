@@ -4,6 +4,7 @@ import { createDrawerNavigator } from "@react-navigation/drawer";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import TranslateScreen from "../screen/TranslateScreen";
 import ChooseLanguageScreen from "../screen/ChooseLanguageScreen";
+import VocabularyScreen from "./VocabularyScreen";
 import { useTranslation } from "react-i18next";
 import { CustomDrawer } from "../components/CustomDrawer";
 
@@ -26,6 +27,13 @@ export default function MainScreen() {
             title: t("dich"),
           }}
           component={TranslateScreen}
+        />
+        <Drawer.Screen
+          name="Vocab"
+          options={{
+            title: t("lichSu"),
+          }}
+          component={VocabularyScreen}
         />
       </Drawer.Navigator>
     );
