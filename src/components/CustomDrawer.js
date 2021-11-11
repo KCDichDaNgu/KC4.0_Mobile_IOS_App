@@ -5,12 +5,18 @@ import { useTheme } from "react-native-paper";
 import {
   DrawerContentScrollView,
   DrawerItemList,
+  DrawerItem,
 } from "@react-navigation/drawer";
 import { useTranslation } from "react-i18next";
+import { Avatar, Card } from "react-native-paper";
 
 export const CustomDrawer = (props) => {
   const { colors } = useTheme();
   const { t } = useTranslation();
+
+  const LeftContent = (props) => (
+    <Avatar.Image {...props} source={{ uri: props.userInfo?.data.avatar }} />
+  );
 
   const filteredProps = {
     ...props,
@@ -25,24 +31,40 @@ export const CustomDrawer = (props) => {
 
   return (
     <DrawerContentScrollView {...filteredProps}>
-      <View style={{ ...styles.container, backgroundColor: colors.primary }}>
-        <View style={styles.box1}>
-          <View style={styles.inner}>
-            <Image
-              style={styles.imageLogo}
-              // eslint-disable-next-line no-undef
-              source={require("../asset/images/jsApp_assets_images_lg.png")}
-            />
+      {props.userInfo ? (
+        <Card>
+          <Card.Title
+            title={props.userInfo?.data.firstName}
+            subtitle={props.userInfo?.data.email}
+            left={LeftContent}
+          />
+        </Card>
+      ) : (
+        <View style={{ ...styles.container, backgroundColor: colors.primary }}>
+          <View style={styles.box1}>
+            <View style={styles.inner}>
+              <Image
+                style={styles.imageLogo}
+                // eslint-disable-next-line no-undef
+                source={require("../asset/images/jsApp_assets_images_lg.png")}
+              />
+            </View>
+          </View>
+          <View style={styles.box2}>
+            <View style={styles.inner}>
+              <Text style={styles.textTitle}>Language Translation</Text>
+              <Text style={styles.textDis}>
+                {t("drawer_title_DichNgonNgu")}
+              </Text>
+            </View>
           </View>
         </View>
-        <View style={styles.box2}>
-          <View style={styles.inner}>
-            <Text style={styles.textTitle}>Language Translation</Text>
-            <Text style={styles.textDis}>{t("drawer_title_DichNgonNgu")}</Text>
-          </View>
-        </View>
-      </View>
+      )}
       <DrawerItemList {...filteredProps} />
+      <DrawerItem
+        label={props.userInfo ? "Logout" : "LogIn"}
+        onPress={props.userInfo ? props.handleLogout : props.handleLogin}
+      />
     </DrawerContentScrollView>
   );
 };

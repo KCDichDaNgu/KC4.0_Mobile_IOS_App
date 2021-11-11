@@ -7,11 +7,16 @@
       "**/*"
     ],
     "ios": {
-      "bundleIdentifier": "com.kse.uettranslation",
-      "buildNumber": "1.0.0"
+      "bundleIdentifier": "org.name.expotranslationUET",
+      "buildNumber": "1.0.0",
+      "config": {
+        "googleSignIn": {
+          "reservedClientId": "678502825589-nqgohudq0erdrtpghipkg00vj27v6q1r.apps.googleusercontent.com"
+        }
+      }
     },
     "android": {
-      "package": "com.kse.uettranslation",
+      "package": "com.expotranslationuet",
       "versionCode": 1
     }
   }

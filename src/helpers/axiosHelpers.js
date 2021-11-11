@@ -1,4 +1,6 @@
 import axios from "axios";
+import { ACCESS_TOKEN } from "../constant/envVar";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 let CancelSource = axios.CancelToken.source();
 
@@ -17,12 +19,16 @@ const axiosDefault = axios.create({
 
 axiosDefault.interceptors.request.use(
   async (config) => {
-    // const acc_token = localStorage.getItem(ACCESS_TOKEN);
-    // if (acc_token) {
-    //   config.headers.Authorization = `${acc_token}`;
-    // }
-    config.cancelToken = CancelSource.token;
-    return config;
+    try {
+      const accToken = await AsyncStorage.getItem(ACCESS_TOKEN);
+      if (accToken) {
+        config.headers.Authorization = `${accToken}`;
+      }
+      config.cancelToken = CancelSource.token;
+      return config;
+    } catch (e) {
+      Promise.reject(e);
+    }
   },
   (error) => Promise.reject(error)
 );
@@ -150,6 +156,45 @@ export const translateFile = (body) => {
       data: body,
       // body: body,
     })
+      .then((result) => {
+        resolve(result.data);
+      })
+      .catch((error) => {
+        reject(error);
+      });
+  });
+};
+
+export const signIn = (body) => {
+  return new Promise((resolve, reject) => {
+    axiosDefault
+      .post("user/auth", body)
+      .then((result) => {
+        resolve(result.data);
+      })
+      .catch((error) => {
+        reject(error);
+      });
+  });
+};
+
+export const getMe = () => {
+  return new Promise((resolve, reject) => {
+    axiosDefault
+      .get("user/me")
+      .then((result) => {
+        resolve(result.data);
+      })
+      .catch((error) => {
+        reject(error);
+      });
+  });
+};
+
+export const signOut = () => {
+  return new Promise((resolve, reject) => {
+    axiosDefault
+      .post("user/logout")
       .then((result) => {
         resolve(result.data);
       })

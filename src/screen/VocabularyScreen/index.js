@@ -3,12 +3,7 @@ import { View } from "react-native";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { styles } from "./VocabularyScreen.styles";
-import {
-  List,
-  IconButton,
-  ProgressBar,
-  ActivityIndicator,
-} from "react-native-paper";
+import { List, IconButton, ProgressBar } from "react-native-paper";
 import { FlatList } from "react-native";
 import {
   getTranslateHistory,
@@ -38,6 +33,7 @@ function VocabularyScreen(props) {
   const [currentState, setCurrentState] = useState(STATE.INIT);
   const [list, setList] = useState([]);
   const [total, setTotal] = useState(0);
+  const [isRefresh, setIsRefresh] = useState(false);
 
   useEffect(() => {
     getListPage(page);
@@ -119,6 +115,12 @@ function VocabularyScreen(props) {
     navigation.navigate("Home");
   };
 
+  const handleRefresh = () => {
+    page = 1;
+    getListPage(page);
+    setIsRefresh(false);
+  };
+
   return (
     <View style={styles.container}>
       {page === 1 ? (
@@ -139,12 +141,11 @@ function VocabularyScreen(props) {
             )}
           />
         )}
+        refreshing={isRefresh}
+        onRefresh={handleRefresh}
         keyExtractor={(item) => item.id}
         onEndReached={getMoreList}
         onEndReachedThreshold={0}
-        ListFooterComponent={
-          <ActivityIndicator animating={currentState === STATE.LOADING} />
-        }
       />
     </View>
   );
