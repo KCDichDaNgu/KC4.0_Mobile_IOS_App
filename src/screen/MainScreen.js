@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import React from "react";
 import { DevSettings } from "react-native";
@@ -8,6 +9,7 @@ import ChooseLanguageScreen from "../screen/ChooseLanguageScreen";
 import VocabularyScreen from "./VocabularyScreen";
 import * as WebBrowser from "expo-web-browser";
 import * as Google from "expo-auth-session/providers/google";
+import * as Updates from "expo-updates";
 import { useTranslation } from "react-i18next";
 import { CustomDrawer } from "../components/CustomDrawer";
 import { signIn, getMe, signOut } from "../helpers/axiosHelpers";
@@ -28,6 +30,8 @@ export default function MainScreen() {
   const [request, response, promptAsync] = Google.useAuthRequest({
     iosClientId:
       "678502825589-458tr32q7p4q93b8a4633q47g9ehdl7r.apps.googleusercontent.com",
+    androidClientId:
+      "678502825589-d5aat910cj9a63tqven7id6a3ooqd55v.apps.googleusercontent.com",
   });
 
   React.useEffect(() => {
@@ -53,7 +57,12 @@ export default function MainScreen() {
       });
       AsyncStorage.setItem(ACCESS_TOKEN, siginInResult.data.accessToken);
       AsyncStorage.setItem(REFRESH_TOKEN, siginInResult.data.refreshToken);
-      DevSettings.reload();
+      // eslint-disable-next-line no-undef
+      if (__DEV__) {
+        DevSettings.reload();
+      } else {
+        await Updates.reloadAsync();
+      }
     } catch (e) {
       alert(e);
     }
@@ -74,7 +83,12 @@ export default function MainScreen() {
     try {
       await signOut();
       AsyncStorage.clear();
-      DevSettings.reload();
+      // eslint-disable-next-line no-undef
+      if (__DEV__) {
+        DevSettings.reload();
+      } else {
+        await Updates.reloadAsync();
+      }
     } catch (e) {
       alert(e);
     }

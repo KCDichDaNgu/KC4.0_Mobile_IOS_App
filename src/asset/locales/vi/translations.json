@@ -27,6 +27,9 @@
   "anVaoDayDeTaiTaiLieuTiengViet": "Ấn vào đây để tải tài liệu tiếng Việt",
   "anVaoDayDeTaiTaiLieuTiengLao": "Ấn vào đây để tải tài liệu tiếng Lào",
   "anVaoDayDeTaiTaiLieuTiengKhome": "Ấn vào đây để tải tài liệu tiếng Khơme",
+  "login": "Đăng nhập",
+  "logout": "Đăng xuất",
+  "danhSachLichSuRong": "Danh sách lịch sử rỗng",
   
   "translateScreen_nhapNoiDungVanBan": "Nhập nội dung văn bản",
   "textInputTranslatePopupScreen_nhapNoiDungVanBan": "Nhập nội dung văn bản",

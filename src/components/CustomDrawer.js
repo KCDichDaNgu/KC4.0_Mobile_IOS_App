@@ -62,7 +62,7 @@ export const CustomDrawer = (props) => {
       )}
       <DrawerItemList {...filteredProps} />
       <DrawerItem
-        label={props.userInfo ? "Logout" : "LogIn"}
+        label={props.userInfo ? t("logout") : t("login")}
         onPress={props.userInfo ? props.handleLogout : props.handleLogin}
       />
     </DrawerContentScrollView>

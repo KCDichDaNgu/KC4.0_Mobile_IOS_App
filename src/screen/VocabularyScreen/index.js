@@ -3,12 +3,13 @@ import { View } from "react-native";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { styles } from "./VocabularyScreen.styles";
-import { List, IconButton, ProgressBar } from "react-native-paper";
+import { List, IconButton, ProgressBar, Text } from "react-native-paper";
 import { FlatList } from "react-native";
 import {
   getTranslateHistory,
   getTranslateResult,
 } from "../../helpers/axiosHelpers";
+import { useTranslation } from "react-i18next";
 import {
   changeSourceText,
   changeTargetText,
@@ -29,6 +30,7 @@ const STATE = {
 };
 
 function VocabularyScreen(props) {
+  const { t } = useTranslation();
   const { navigation, translationState } = props;
   const [currentState, setCurrentState] = useState(STATE.INIT);
   const [list, setList] = useState([]);
@@ -143,9 +145,19 @@ function VocabularyScreen(props) {
         )}
         refreshing={isRefresh}
         onRefresh={handleRefresh}
+        contentContainerStyle={{ flexGrow: 1 }}
         keyExtractor={(item) => item.id}
         onEndReached={getMoreList}
         onEndReachedThreshold={0}
+        ListEmptyComponent={() => {
+          return (
+            <View
+              style={{ alignSelf: "center", justifyContent: "center", flex: 1 }}
+            >
+              <Text>{t("danhSachLichSuRong")}</Text>
+            </View>
+          );
+        }}
       />
     </View>
   );

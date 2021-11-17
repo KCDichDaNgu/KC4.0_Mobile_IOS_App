@@ -10,7 +10,7 @@ export const cancelRequest = () => {
 
 const axiosDefault = axios.create({
   // baseURL: 'http://nmtuet.ddns.net:1710/',
-  baseURL: "http://nmtuet.ddns.net:8000/",
+  baseURL: "https://nmtuet.ddns.net:8000/",
   headers: {
     "Content-Type": "application/json",
   },
@@ -195,6 +195,22 @@ export const signOut = () => {
   return new Promise((resolve, reject) => {
     axiosDefault
       .post("user/logout")
+      .then((result) => {
+        resolve(result.data);
+      })
+      .catch((error) => {
+        reject(error);
+      });
+  });
+};
+
+export const getSystemSetting = (params) => {
+  return new Promise((resolve, reject) => {
+    axiosDefault({
+      url: "system-setting",
+      method: "GET",
+      params,
+    })
       .then((result) => {
         resolve(result.data);
       })
