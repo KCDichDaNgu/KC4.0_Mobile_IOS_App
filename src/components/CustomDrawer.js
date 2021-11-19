@@ -5,7 +5,6 @@ import { useTheme } from "react-native-paper";
 import {
   DrawerContentScrollView,
   DrawerItemList,
-  DrawerItem,
 } from "@react-navigation/drawer";
 import { useTranslation } from "react-i18next";
 import { Avatar, Card } from "react-native-paper";
@@ -61,10 +60,6 @@ export const CustomDrawer = (props) => {
         </View>
       )}
       <DrawerItemList {...filteredProps} />
-      <DrawerItem
-        label={props.userInfo ? t("logout") : t("login")}
-        onPress={props.userInfo ? props.handleLogout : props.handleLogin}
-      />
     </DrawerContentScrollView>
   );
 };

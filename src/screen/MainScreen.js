@@ -1,111 +1,42 @@
-/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import React from "react";
-import { DevSettings } from "react-native";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import TranslateScreen from "../screen/TranslateScreen";
 import ChooseLanguageScreen from "../screen/ChooseLanguageScreen";
 import VocabularyScreen from "./VocabularyScreen";
+import LoginScreen from "./LoginScreen";
 import * as WebBrowser from "expo-web-browser";
-import * as Google from "expo-auth-session/providers/google";
-import * as Updates from "expo-updates";
 import { useTranslation } from "react-i18next";
 import { CustomDrawer } from "../components/CustomDrawer";
-import { signIn, getMe, signOut } from "../helpers/axiosHelpers";
-import { ACCESS_TOKEN, REFRESH_TOKEN } from "../constant/envVar";
+import { ACCESS_TOKEN } from "../constant/envVar";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 WebBrowser.maybeCompleteAuthSession();
 
 export default function MainScreen() {
   const { t } = useTranslation();
-  const [userInfo, setUserInfo] = React.useState(null);
+  const [isLogin, setIsLogin] = React.useState(false);
 
   const Drawer = createDrawerNavigator();
 
   const Stack = createNativeStackNavigator();
 
-  // eslint-disable-next-line no-unused-vars
-  const [request, response, promptAsync] = Google.useAuthRequest({
-    iosClientId:
-      "678502825589-458tr32q7p4q93b8a4633q47g9ehdl7r.apps.googleusercontent.com",
-    androidClientId:
-      "678502825589-d5aat910cj9a63tqven7id6a3ooqd55v.apps.googleusercontent.com",
-  });
-
   React.useEffect(() => {
-    const getInfo = async () => {
-      try {
-        const accToken = await AsyncStorage.getItem(ACCESS_TOKEN);
-        if (accToken) {
-          const user = await getMe();
-          setUserInfo(user);
-        }
-      } catch (e) {
-        alert(e);
+    const getToken = async () => {
+      const token = await AsyncStorage.getItem(ACCESS_TOKEN);
+      if (token) {
+        setIsLogin(true);
       }
     };
-    getInfo();
+    getToken();
   }, []);
-
-  const logIn = async (authentication) => {
-    try {
-      const siginInResult = await signIn({
-        access_token: authentication.accessToken,
-        platform: "web",
-      });
-      AsyncStorage.setItem(ACCESS_TOKEN, siginInResult.data.accessToken);
-      AsyncStorage.setItem(REFRESH_TOKEN, siginInResult.data.refreshToken);
-      // eslint-disable-next-line no-undef
-      if (__DEV__) {
-        DevSettings.reload();
-      } else {
-        await Updates.reloadAsync();
-      }
-    } catch (e) {
-      alert(e);
-    }
-  };
-
-  React.useEffect(() => {
-    if (response?.type === "success") {
-      const { authentication } = response;
-      logIn(authentication);
-    }
-  }, [response]);
-
-  const handleLogin = () => {
-    promptAsync();
-  };
-
-  const handleLogout = async () => {
-    try {
-      await signOut();
-      AsyncStorage.clear();
-      // eslint-disable-next-line no-undef
-      if (__DEV__) {
-        DevSettings.reload();
-      } else {
-        await Updates.reloadAsync();
-      }
-    } catch (e) {
-      alert(e);
-    }
-  };
 
   const Root = () => {
     return (
       <Drawer.Navigator
         initialRouteName="Home"
-        drawerContent={(props) => (
-          <CustomDrawer
-            {...props}
-            handleLogin={handleLogin}
-            handleLogout={handleLogout}
-            userInfo={userInfo}
-          />
-        )}
+        drawerContent={(props) => <CustomDrawer {...props} />}
       >
         <Drawer.Screen
           name="Home"
@@ -120,6 +51,13 @@ export default function MainScreen() {
             title: t("lichSu"),
           }}
           component={VocabularyScreen}
+        />
+        <Drawer.Screen
+          name="Login"
+          options={{
+            title: !isLogin ? t("login") : t("thongTinNguoiDung"),
+          }}
+          component={LoginScreen}
         />
       </Drawer.Navigator>
     );

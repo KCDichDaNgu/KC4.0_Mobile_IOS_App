@@ -29,7 +29,11 @@
   "anVaoDayDeTaiTaiLieuTiengKhome": "Ấn vào đây để tải tài liệu tiếng Khơme",
   "login": "Đăng nhập",
   "logout": "Đăng xuất",
+  "loginWithGoogle": "Đăng nhập bằng Google",
   "danhSachLichSuRong": "Danh sách lịch sử rỗng",
+  "matKhau": "Mật khẩu",
+  "thongTinNguoiDung": "Thông tin người dùng",
+  "ten": "Tên",
   
   "translateScreen_nhapNoiDungVanBan": "Nhập nội dung văn bản",
   "textInputTranslatePopupScreen_nhapNoiDungVanBan": "Nhập nội dung văn bản",
