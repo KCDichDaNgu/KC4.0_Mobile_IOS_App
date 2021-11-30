@@ -1,5 +1,5 @@
 import React from "react";
-import { TextInput, TouchableOpacity } from "react-native";
+import { TextInput, TouchableOpacity, Keyboard } from "react-native";
 import { IconButton, Button, Divider, Text, Title } from "react-native-paper";
 import { MaterialIcons } from "@expo/vector-icons";
 import { connect } from "react-redux";
@@ -23,6 +23,30 @@ import * as DocumentPicker from "expo-document-picker";
 function InputTranslation(props) {
   const { t } = useTranslation();
   const { translationState } = props;
+  const [isKeyboardVisible, setKeyboardVisible] = React.useState(false);
+
+  React.useEffect(() => {
+    const keyboardDidShowListener = Keyboard.addListener(
+      "keyboardDidShow",
+      () => {
+        setKeyboardVisible(true); // or some other action
+      }
+    );
+    const keyboardDidHideListener = Keyboard.addListener(
+      "keyboardDidHide",
+      () => {
+        setKeyboardVisible(false); // or some other action
+      }
+    );
+
+    console.log("hello");
+
+    // Return có nghĩa là remove listener khi component này được unmount.
+    return () => {
+      keyboardDidHideListener.remove();
+      keyboardDidShowListener.remove();
+    };
+  }, []);
 
   const handleTranslate = () => {
     props.changeTargetText("");
@@ -73,6 +97,9 @@ function InputTranslation(props) {
       return true;
     }
     if (translationState.currentState === STATE.LOADING) {
+      return true;
+    }
+    if (isKeyboardVisible) {
       return true;
     }
     return false;
