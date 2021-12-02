@@ -39,8 +39,6 @@ function InputTranslation(props) {
       }
     );
 
-    console.log("hello");
-
     // Return có nghĩa là remove listener khi component này được unmount.
     return () => {
       keyboardDidHideListener.remove();
@@ -80,6 +78,7 @@ function InputTranslation(props) {
     const result = await DocumentPicker.getDocumentAsync({
       type: [
         "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+        "text/*",
       ],
     });
     if (result.type === "success") {

@@ -5,6 +5,7 @@ import { TextInput, TouchableOpacity, Linking } from "react-native";
 import * as Clipboard from "expo-clipboard";
 import { useTranslation } from "react-i18next";
 import { Card, useTheme, IconButton, Text } from "react-native-paper";
+import { axiosDefault } from "../../../helpers/axiosHelpers";
 function ResultTranslateBox(props) {
   const { t } = useTranslation();
   const { colors } = useTheme();
@@ -15,7 +16,7 @@ function ResultTranslateBox(props) {
   };
 
   const handleDownload = async () => {
-    const url = `http://nmtuet.ddns.net:8000/${translationState.outputFile.target_file_full_path}`;
+    const url = `${axiosDefault.defaults.baseURL}${translationState.outputFile.target_file_full_path}`;
     const supported = await Linking.canOpenURL(url);
     if (supported) {
       // Opening the link with some app, if the URL scheme is "http" the web link should be opened

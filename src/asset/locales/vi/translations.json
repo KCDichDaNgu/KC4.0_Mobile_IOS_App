@@ -34,6 +34,10 @@
   "matKhau": "Mật khẩu",
   "thongTinNguoiDung": "Thông tin người dùng",
   "ten": "Tên",
+  "canhBao": "Cảnh báo",
+  "banCoMuonThoatKhoiUngDung": "Bạn có muốn thoát khỏi ứng dụng?",
+  "co": "Có",
+  "huyBo": "Huỷ bỏ",
   
   "translateScreen_nhapNoiDungVanBan": "Nhập nội dung văn bản",
   "textInputTranslatePopupScreen_nhapNoiDungVanBan": "Nhập nội dung văn bản",

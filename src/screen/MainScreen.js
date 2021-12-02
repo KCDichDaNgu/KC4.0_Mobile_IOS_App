@@ -25,14 +25,14 @@ export default function MainScreen() {
 
   React.useEffect(() => {
     const backAction = () => {
-      Alert.alert("Hold on!", "Are you sure you want to go back?", [
+      Alert.alert(t("canhBao"), t("banCoMuonThoatKhoiUngDung"), [
         {
-          text: "Cancel",
+          text: t("huyBo"),
           onPress: () => null,
           style: "cancel",
         },
         {
-          text: "YES",
+          text: t("co"),
           onPress: () => {
             BackHandler.exitApp();
           },
