@@ -134,7 +134,7 @@ const LoginScreen = (props) => {
         />
         <TextInput
           style={{ marginBottom: 20 }}
-          label={userInfo ? t("ten") : t("matKhau")}
+          label={userInfo ? t("ten") : t("tenDangNhap")}
           value={userInfo?.data.firstName}
           disabled={userInfo !== null}
         />

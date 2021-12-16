@@ -131,7 +131,10 @@ function InputTranslation(props) {
               textAlignVertical: "top",
             }}
             placeholder={t("translateScreen_nhapNoiDungVanBan")}
-            value={translationState.translateText.sourceText}
+            // Không dùng value vì nó gây bug lặp từ khi gõ bàn phím tiếng việt.
+            // Link issue: https://github.com/facebook/react-native/issues/30503
+            // value={translationState.translateText.sourceText}
+            defaultValue={translationState.translateText.sourceText}
             onChangeText={props.changeSourceText}
           />
         )}
