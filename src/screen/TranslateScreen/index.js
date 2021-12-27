@@ -3,14 +3,21 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { View, ScrollView } from "react-native";
 import { STATE } from "../../redux/features/translationSlice";
-import { Divider } from "react-native-paper";
+import { Divider, Snackbar } from "react-native-paper";
 import { styles } from "./translateScreen.styles";
+import { useTranslation } from "react-i18next";
 import ChooseLanguage from "./components/ChooseLanguage";
 import InputTranslation from "./components/InputTranslation";
 import OutputTranslation from "./components/OutputTranslation";
 
 const TranslateScreen = (props) => {
+  const { t } = useTranslation();
   const { navigation, translationState } = props;
+  const [visible, setVisible] = React.useState(false);
+
+  const onToggleSnackBar = () => setVisible(!visible);
+
+  const onDismissSnackBar = () => setVisible(false);
 
   /**
    * @description useEffect cho việc check kết quả và báo noti cho
@@ -36,8 +43,11 @@ const TranslateScreen = (props) => {
         <ChooseLanguage navigation={navigation} />
         <Divider />
         <InputTranslation />
-        <OutputTranslation />
+        <OutputTranslation onToggleSnackBar={onToggleSnackBar} />
       </ScrollView>
+      <Snackbar visible={visible} onDismiss={onDismissSnackBar} duration={1000}>
+        {t("vanBanNayDaDuocCopy")}
+      </Snackbar>
     </View>
   );
 };

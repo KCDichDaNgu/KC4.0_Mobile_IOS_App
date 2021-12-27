@@ -13,6 +13,7 @@ function ResultTranslateBox(props) {
 
   const copyToClipboard = () => {
     Clipboard.setString(translationState.translateText.targetText);
+    props.onToggleSnackBar();
   };
 
   const handleDownload = async () => {
@@ -83,6 +84,7 @@ function ResultTranslateBox(props) {
 
 ResultTranslateBox.propTypes = {
   translationState: PropTypes.object,
+  onToggleSnackBar: PropTypes.func,
 };
 
 const mapStateToProps = (state) => ({

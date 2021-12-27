@@ -20,7 +20,7 @@
   "dong": "Đóng",
   "chonTaiLieu": "Chọn tài liệu",
   "huy": "Hủy",
-  "lichSu": "Lịch Sử",
+  "lichSu": "Lịch sử",
   "anVaoDayDeTaiTaiLieu": "Ấn vào đây để tải tài liệu",
   "anVaoDayDeTaiTaiLieuTiengAnh": "Ấn vào đây để tải tài liệu tiếng Anh",
   "anVaoDayDeTaiTaiLieuTiengTrung": "Ấn vào đây để tải tài liệu tiếng Trung",
@@ -39,6 +39,7 @@
   "banCoMuonThoatKhoiUngDung": "Bạn có muốn thoát khỏi ứng dụng?",
   "co": "Có",
   "huyBo": "Huỷ bỏ",
+  "vanBanNayDaDuocCopy": "Văn bản này đã được copy",
   
   "translateScreen_nhapNoiDungVanBan": "Nhập nội dung văn bản",
   "textInputTranslatePopupScreen_nhapNoiDungVanBan": "Nhập nội dung văn bản",

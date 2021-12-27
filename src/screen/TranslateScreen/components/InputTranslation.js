@@ -130,8 +130,10 @@ function InputTranslation(props) {
               flex: 1,
               textAlignVertical: "top",
             }}
+            rejectResponderTermination={false} // dùng để sửa lỗi scroll vs textInput trong IOS
+            scrollEnabled={false} // dùng để sửa lỗi scroll vs textInput trong IOS
             placeholder={t("translateScreen_nhapNoiDungVanBan")}
-            // Không dùng value vì nó gây bug lặp từ khi gõ bàn phím tiếng việt.
+            // Không dùng prop value vì nó gây bug lặp từ khi gõ bàn phím tiếng việt.
             // Link issue: https://github.com/facebook/react-native/issues/30503
             // value={translationState.translateText.sourceText}
             defaultValue={translationState.translateText.sourceText}
