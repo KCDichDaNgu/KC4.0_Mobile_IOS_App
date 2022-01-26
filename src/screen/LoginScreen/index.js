@@ -26,9 +26,11 @@ const LoginScreen = (props) => {
   // eslint-disable-next-line no-unused-vars
   const [request, response, promptAsync] = Google.useAuthRequest({
     iosClientId:
-      "678502825589-458tr32q7p4q93b8a4633q47g9ehdl7r.apps.googleusercontent.com",
+      //  "678502825589-458tr32q7p4q93b8a4633q47g9ehdl7r.apps.googleusercontent.com",
+      "1006597644137-78gnfu6i9r2ogqv9fjqpje1bll9fj7vm.apps.googleusercontent.com",
     androidClientId:
-      "678502825589-d5aat910cj9a63tqven7id6a3ooqd55v.apps.googleusercontent.com",
+      //  "678502825589-d5aat910cj9a63tqven7id6a3ooqd55v.apps.googleusercontent.com",
+      "1006597644137-jl1mb1lr4t2o7vcdivmtami6ks0dgg91.apps.googleusercontent.com",
   });
 
   // Trả về response => login vào hệ thống.

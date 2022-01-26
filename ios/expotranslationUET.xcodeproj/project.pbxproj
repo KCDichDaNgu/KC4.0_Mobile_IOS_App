@@ -27,6 +27,7 @@
 		58EEBF8E8E6FB1BC6CAF49B5 /* libPods-expotranslationUET.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-expotranslationUET.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C2E3173556A471DD304B334 /* Pods-expotranslationUET.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-expotranslationUET.debug.xcconfig"; path = "Target Support Files/Pods-expotranslationUET/Pods-expotranslationUET.debug.xcconfig"; sourceTree = "<group>"; };
 		7A4D352CD337FB3A3BF06240 /* Pods-expotranslationUET.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-expotranslationUET.release.xcconfig"; path = "Target Support Files/Pods-expotranslationUET/Pods-expotranslationUET.release.xcconfig"; sourceTree = "<group>"; };
+		926A8A16D045237095FEC7F2 /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-expotranslationUET/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
 		984012712733CA4800128448 /* expotranslationUET.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = expotranslationUET.entitlements; path = expotranslationUET/expotranslationUET.entitlements; sourceTree = "<group>"; };
 		AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SplashScreen.storyboard; path = expotranslationUET/SplashScreen.storyboard; sourceTree = "<group>"; };
 		BB2F792C24A3F905000567C9 /* Expo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Expo.plist; sourceTree = "<group>"; };
@@ -58,6 +59,7 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB71A68108700A75B9A /* main.m */,
 				AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */,
+				926A8A16D045237095FEC7F2 /* ExpoModulesProvider.swift */,
 			);
 			name = expotranslationUET;
 			sourceTree = "<group>";
@@ -327,7 +329,7 @@
 				CODE_SIGN_ENTITLEMENTS = expotranslationUET/expotranslationUET.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = JC244TBS9M;
 				ENABLE_BITCODE = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -391,6 +393,7 @@
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/react-native-safe-area-context\"",
 					/usr/lib/swift,
 				);
+				MARKETING_VERSION = 0.1.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -414,7 +417,7 @@
 				CODE_SIGN_ENTITLEMENTS = expotranslationUET/expotranslationUET.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = U9MFH6222M;
 				INFOPLIST_FILE = expotranslationUET/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -466,6 +469,7 @@
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/react-native-safe-area-context\"",
 					/usr/lib/swift,
 				);
+				MARKETING_VERSION = 0.1.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",

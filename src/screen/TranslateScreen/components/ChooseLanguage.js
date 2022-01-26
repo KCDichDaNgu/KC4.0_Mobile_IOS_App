@@ -22,19 +22,36 @@ function ChooseLanguage(props) {
     translationState.currentState === STATE.LOADING ||
     translationState.translateCode.sourceLang === null;
 
-  const showFromLang = (code) => (
-    <TouchableOpacity
-      disabled={isDisable()}
-      onPress={() => navigation.navigate("FromLanguage", { canDetect: true })}
-    >
-      <View style={chooseLanguage.buttonStyleFrom}>
-        <Title style={chooseLanguage.text}>
-          {code ? t(code) : t("phatHienNgonNgu")}
-        </Title>
-        <MaterialIcons name="arrow-drop-down" size={24} color="black" />
-      </View>
-    </TouchableOpacity>
-  );
+  const showFromLang = (code) => {
+    if (code === "vi") {
+      return (
+        <TouchableOpacity disabled={isDisable()}>
+          <View style={chooseLanguage.buttonStyleFrom}>
+            <Title style={chooseLanguage.text}>
+              {code ? t(code) : t("phatHienNgonNgu")}
+            </Title>
+            <MaterialIcons name="arrow-drop-down" size={24} color="black" />
+          </View>
+        </TouchableOpacity>
+      );
+    } else {
+      return (
+        <TouchableOpacity
+          disabled={isDisable()}
+          onPress={() =>
+            navigation.navigate("FromLanguage", { canDetect: true })
+          }
+        >
+          <View style={chooseLanguage.buttonStyleFrom}>
+            <Title style={chooseLanguage.text}>
+              {code ? t(code) : t("phatHienNgonNgu")}
+            </Title>
+            <MaterialIcons name="arrow-drop-down" size={24} color="black" />
+          </View>
+        </TouchableOpacity>
+      );
+    }
+  };
 
   const handleSwap = () => {
     props.swapLang({

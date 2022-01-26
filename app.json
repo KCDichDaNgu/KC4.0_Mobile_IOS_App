@@ -7,7 +7,7 @@
       "**/*"
     ],
     "ios": {
-      "bundleIdentifier": "org.name.expotranslationUET",
+      "bundleIdentifier": "org.kse.expotranslationUET",
       "buildNumber": "1.0.0",
       "config": {
         "googleSignIn": {
