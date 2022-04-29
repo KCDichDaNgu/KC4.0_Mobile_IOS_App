@@ -1,19 +1,19 @@
-id: ux3wzkCDJUWyjj-jHZLhyw
+id: 5jlXFhh5tUWar-w2-21J5Q
 projectId: e3oikfo1K0O2A0aAaoj5kw
 projectName: Test Exercise
-created: 2022-04-22T14:46:53.8978316Z
+created: 2022-04-29T13:33:30.7044565Z
 owner: Bách Trần Xuân
 protocol: 1
 tests:
 - id: Y_XRXh5e80iSRbsytEDZeg
   name: TestTranslatePlainText(ENG_VN_with_account_logged_in)
-  description: ''
+  description: Test dịch tiếng Anh sang tiếng Việt
   platform: Android
   type: Mobile
   driverType: Appium_Android
   version: 0.1
   creationDate: 2022-04-21T10:27:56.0000000
-  modificationDate: 2022-04-22T14:37:01.0000000
+  modificationDate: 2022-04-29T13:32:44.0000000
   settings:
     automationAssistant: true
     appId: 0L2wxD7J-Uejli5lULPDwg
