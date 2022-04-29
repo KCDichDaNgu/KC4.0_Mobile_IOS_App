@@ -78,7 +78,7 @@ function InputTranslation(props) {
     const result = await DocumentPicker.getDocumentAsync({
       type: [
         "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
-        "text/*",
+        "text/*", "application/vnd.ms-powerpoint", "application/vnd.openxmlformats-officedocument.presentationml.presentation"
       ],
     });
     if (result.type === "success") {
