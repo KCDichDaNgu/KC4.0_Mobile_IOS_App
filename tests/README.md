@@ -1,5 +1,7 @@
 # Hướng dẫn kiểm thử tự động với TestProject
 
+*Một số file yaml phần phía trên được tạo ra khi chưa chỉnh sửa link API!
+
 1.  Thiết lập môi trường cho ứng dụng.
 
 2. Truy cập vào trang chủ [*testproject*][web].
