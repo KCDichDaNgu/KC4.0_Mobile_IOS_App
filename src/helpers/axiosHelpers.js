@@ -10,8 +10,8 @@ export const cancelRequest = () => {
 
 export const axiosDefault = axios.create({
   // baseURL: 'http://nmtuet.ddns.net:1710/',
-  // baseURL: "https://nmtuet.ddns.net:8000/",
-  baseURL: "https://kcdichdangu.ddns.net:8000/",
+  baseURL: "https://nmtuet.ddns.net:8000/",
+  //baseURL: "https://kcdichdangu.ddns.net:8000/",
   headers: {
     "Content-Type": "application/json",
   },
