@@ -1,0 +1,323 @@
+id: rUyXW93l10eJON0PJfelQA
+projectId: xYIZoCzdhkuoJGnRjIWllg
+projectName: My first Project
+created: 2022-04-29T15:57:48.0214798Z
+owner: Nam Vũ
+protocol: 1
+tests:
+- id: sQNbafa2U0CzXv1ykKbjPg
+  name: Test TXT file empty
+  description: Empty file
+  platform: Android
+  type: Mobile
+  driverType: Appium_Android
+  version: 0.1
+  creationDate: 2022-04-29T15:44:23.0000000
+  modificationDate: 2022-04-29T15:55:14.0000000
+  settings:
+    automationAssistant: true
+    deviceId: c882bea20720
+    appId: reCiJmSiL0igRqfenBMZvg
+    stepSleepTime: 500
+    stepTimeout: 15000
+    stepSleepTiming: Before
+    stepFailureBehaviorType: Abort
+    stepTakeScreenshotConditionType: Failure
+  application:
+    id: reCiJmSiL0igRqfenBMZvg
+    androidActivity: host.exp.exponent.experience.HomeActivity
+    androidPackage: host.exp.exponent
+    name: UET Translate
+    platform: Android
+  steps:
+  - id: o6JDRAvc_EipE_GBetZpHw
+    enabled: true
+    invertResult: false
+    order: 1
+    repeat: 1
+    type: Action
+    elementId: 4H7EPUBR-UKyBNcuLg6-Zw
+    settings:
+      sleepTime: -1
+      timeout: -1
+      sleepTiming: Inherit
+      failureBehaviorType: Inherit
+      takeScreenshotConditionType: Inherit
+    action:
+      id: 02d572b2-d610-4700-9ad3-40076ddb9807
+      source: System
+    parameterMaps: []
+    conditions: []
+    validations: []
+    contexts: []
+  - id: hJuc3p1h6Eau2qe1-WKOrQ
+    enabled: true
+    invertResult: false
+    order: 2
+    repeat: 1
+    type: Action
+    elementId: g1kxIZApJk6LQmC8QWn7DQ
+    settings:
+      sleepTime: -1
+      timeout: -1
+      sleepTiming: Inherit
+      failureBehaviorType: Inherit
+      takeScreenshotConditionType: Inherit
+    action:
+      id: 02d572b2-d610-4700-9ad3-40076ddb9807
+      source: System
+    parameterMaps: []
+    conditions: []
+    validations: []
+    contexts: []
+  - id: PXTgLS1hhUOi_oNDAoZZ9w
+    enabled: true
+    invertResult: false
+    order: 3
+    repeat: 1
+    type: Action
+    elementId: WrtGNwdhRkm49EAjYkl-eg
+    settings:
+      sleepTime: -1
+      timeout: -1
+      sleepTiming: Inherit
+      failureBehaviorType: Inherit
+      takeScreenshotConditionType: Inherit
+    action:
+      id: 02d572b2-d610-4700-9ad3-40076ddb9807
+      source: System
+    parameterMaps: []
+    conditions: []
+    validations: []
+    contexts: []
+  - id: BMq3gTcz-k-dhiK-kjUmhA
+    enabled: true
+    invertResult: false
+    order: 4
+    repeat: 1
+    type: Action
+    elementId: sCfbN7AJqkKOXamNlwGcUA
+    settings:
+      sleepTime: -1
+      timeout: -1
+      sleepTiming: Inherit
+      failureBehaviorType: Inherit
+      takeScreenshotConditionType: Inherit
+    action:
+      id: 02d572b2-d610-4700-9ad3-40076ddb9807
+      source: System
+    parameterMaps: []
+    conditions: []
+    validations: []
+    contexts: []
+  - id: 5voRb_7LvE6b3xarLXe5rA
+    enabled: true
+    invertResult: false
+    order: 5
+    repeat: 1
+    type: Action
+    elementId: HZorMXvxh0283KzHDrKDyA
+    settings:
+      sleepTime: -1
+      timeout: -1
+      sleepTiming: Inherit
+      failureBehaviorType: Inherit
+      takeScreenshotConditionType: Inherit
+    action:
+      id: 02d572b2-d610-4700-9ad3-40076ddb9807
+      source: System
+    parameterMaps: []
+    conditions: []
+    validations: []
+    contexts: []
+  - id: 3lgiiinStkaMNNQo3lYEyQ
+    enabled: true
+    invertResult: false
+    order: 6
+    repeat: 1
+    type: Action
+    elementId: BHN26AocUUyhuZd81BTobA
+    settings:
+      sleepTime: -1
+      timeout: -1
+      sleepTiming: Inherit
+      failureBehaviorType: Inherit
+      takeScreenshotConditionType: Inherit
+    action:
+      id: 02d572b2-d610-4700-9ad3-40076ddb9807
+      source: System
+    parameterMaps: []
+    conditions: []
+    validations: []
+    contexts: []
+  - id: pslWGMlo60CTWXoaQqRo7Q
+    enabled: true
+    invertResult: false
+    order: 7
+    repeat: 1
+    type: Action
+    elementId: 5uuTi8vDZ02MXnDO-LqOOA
+    settings:
+      sleepTime: -1
+      timeout: -1
+      sleepTiming: Inherit
+      failureBehaviorType: Inherit
+      takeScreenshotConditionType: Inherit
+    action:
+      id: 02d572b2-d610-4700-9ad3-40076ddb9807
+      source: System
+    parameterMaps: []
+    conditions: []
+    validations: []
+    contexts: []
+  - id: nB8N6ZT7MkSkFbeh9jcZEA
+    comments: ''
+    enabled: true
+    invertResult: false
+    order: 8
+    repeat: 1
+    type: Action
+    elementId: jFbSJmVx2kOgTFMgEaL6IQ
+    settings:
+      sleepTime: -1
+      timeout: -1
+      sleepTiming: Inherit
+      failureBehaviorType: Inherit
+      takeScreenshotConditionType: Inherit
+    action:
+      id: 85da72d0-c5a4-4587-be33-8cb3b5fa7910
+      source: System
+    parameterMaps:
+    - name: text
+      value: ''
+      direction: Input
+    conditions: []
+    validations: []
+    contexts: []
+  parameters: []
+auxTests: []
+elements:
+- id: 4H7EPUBR-UKyBNcuLg6-Zw
+  name: UET translation
+  type:
+    id: jUwODgyNjAyNzk2NTk3NTE
+    name: android.widget.TextView
+    source: System
+  locators:
+  - name: XPATH
+    value: //android.widget.TextView[@text = 'UET translation']
+    priority: 0
+  - name: XPATH
+    value: //android.view.ViewGroup[7]//android.widget.TextView[1]
+    priority: 1
+  - name: XPATH
+    value: //android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[2]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[2]/android.widget.ScrollView[1]/android.view.ViewGroup[1]/android.view.ViewGroup[7]/android.view.ViewGroup[2]/android.widget.TextView[1]
+    priority: 2
+- id: g1kxIZApJk6LQmC8QWn7DQ
+  name: 
+  type:
+    id: jUwODgyNjAyNzk2NTk3NTE
+    name: android.widget.TextView
+    source: System
+  locators:
+  - name: XPATH
+    value: //android.widget.TextView[@text = '']
+    priority: 0
+  - name: XPATH
+    value: //android.view.ViewGroup[1]/android.view.ViewGroup/android.widget.TextView[2]
+    priority: 1
+  - name: XPATH
+    value: //android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[2]/android.widget.ScrollView[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.widget.TextView[2]
+    priority: 2
+- id: sCfbN7AJqkKOXamNlwGcUA
+  name: 
+  type:
+    id: jUwODgyNjAyNzk2NTk3NTE
+    name: android.widget.TextView
+    source: System
+  locators:
+  - name: XPATH
+    value: //android.widget.TextView[@text = '']
+    priority: 0
+  - name: XPATH
+    value: //android.view.ViewGroup[5]/android.view.ViewGroup/android.widget.TextView[1]
+    priority: 1
+  - name: XPATH
+    value: //android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[2]/android.widget.ScrollView[1]/android.view.ViewGroup[1]/android.view.ViewGroup[5]/android.view.ViewGroup[1]/android.widget.TextView[1]
+    priority: 2
+- id: BHN26AocUUyhuZd81BTobA
+  name: ANDROID.WIDGET.BUTTON
+  type:
+    id: jUwODgyNjAyNzk2NTk4NDU
+    name: android.widget.Button
+    source: System
+  locators:
+  - name: XPATH
+    value: //android.view.ViewGroup[5]//android.widget.Button
+    priority: 0
+  - name: XPATH
+    value: //android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[2]/android.widget.ScrollView[1]/android.view.ViewGroup[1]/android.view.ViewGroup[5]/android.view.ViewGroup[2]/android.widget.Button[1]
+    priority: 1
+- id: 5uuTi8vDZ02MXnDO-LqOOA
+  name: Ấn vào đây để tải tài liệu tiếng Việt
+  type:
+    id: jUwODgyNjAyNzk2NTk3NTE
+    name: android.widget.TextView
+    source: System
+  locators:
+  - name: XPATH
+    value: //android.widget.TextView[@text = 'Ấn vào đây để tải tài liệu tiếng Việt']
+    priority: 0
+  - name: XPATH
+    value: //android.view.ViewGroup[6]//android.widget.TextView
+    priority: 1
+  - name: XPATH
+    value: //android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[2]/android.widget.ScrollView[1]/android.view.ViewGroup[1]/android.view.ViewGroup[6]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.widget.TextView[1]
+    priority: 2
+- id: WrtGNwdhRkm49EAjYkl-eg
+  name: Trung
+  type:
+    id: jUwODgyNjAyNzk2NTk3NTE
+    name: android.widget.TextView
+    source: System
+  locators:
+  - name: XPATH
+    value: //android.widget.TextView[@text = 'Trung']
+    priority: 0
+  - name: XPATH
+    value: //android.view.ViewGroup[4]/android.widget.TextView
+    priority: 1
+  - name: XPATH
+    value: //android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.widget.ScrollView[1]/android.view.ViewGroup[1]/android.view.ViewGroup[4]/android.widget.TextView[1]
+    priority: 2
+- id: HZorMXvxh0283KzHDrKDyA
+  name: test_cn_empty.txt
+  type:
+    id: jUwODgyNjAyNzk2NTk3NTE
+    name: android.widget.TextView
+    source: System
+  locators:
+  - name: XPATH
+    value: //android.widget.TextView[@text = 'test_cn_empty.txt']
+    priority: 0
+  - name: XPATH
+    value: //android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.widget.TextView
+    priority: 1
+  - name: XPATH
+    value: //android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/androidx.drawerlayout.widget.DrawerLayout[1]/android.view.ViewGroup[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[2]/android.widget.LinearLayout[1]/android.view.ViewGroup[1]/androidx.recyclerview.widget.RecyclerView[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.widget.TextView[1]
+    priority: 2
+- id: jFbSJmVx2kOgTFMgEaL6IQ
+  name: ANDROID.WEBKIT.WEBVIEW
+  type:
+    id: jUwODgyNjAyNzk2NTk1NDQ
+    name: Generic Android Element
+    source: System
+  locators:
+  - name: XPATH
+    value: //android.webkit.WebView
+    priority: 0
+  - name: XPATH
+    value: //android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[2]/android.webkit.WebView[1]
+    priority: 1
+projectParameters: []
+addons: []

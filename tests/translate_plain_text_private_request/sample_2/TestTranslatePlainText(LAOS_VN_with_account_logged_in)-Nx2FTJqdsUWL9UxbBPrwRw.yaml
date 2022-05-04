@@ -1,0 +1,308 @@
+id: VT8vcsU0F0mNcCxFKbBrTw
+projectId: e3oikfo1K0O2A0aAaoj5kw
+projectName: Test Exercise
+created: 2022-04-29T13:33:40.8210219Z
+owner: Bách Trần Xuân
+protocol: 1
+tests:
+- id: Nx2FTJqdsUWL9UxbBPrwRw
+  name: TestTranslatePlainText(LAOS_VN_with_account_logged_in)
+  description: Test dịch tiếng Lào sang tiếng Việt
+  platform: Android
+  type: Mobile
+  driverType: Appium_Android
+  version: 0.1
+  creationDate: 2022-04-21T10:54:11.0000000
+  modificationDate: 2022-04-29T13:32:58.0000000
+  settings:
+    automationAssistant: true
+    appId: 0L2wxD7J-Uejli5lULPDwg
+    stepSleepTime: 500
+    stepTimeout: 15000
+    stepSleepTiming: Before
+    stepFailureBehaviorType: Abort
+    stepTakeScreenshotConditionType: Failure
+  application:
+    id: 0L2wxD7J-Uejli5lULPDwg
+    androidActivity: com.expotranslationuet.MainActivity
+    androidPackage: com.expotranslationuet
+    name: expo_translationUET
+    platform: Android
+  steps:
+  - id: j2VAIAXZ_EiSnSkN45Z2sA
+    comments: Clear application data and restart (Auto-generated)
+    enabled: true
+    invertResult: false
+    order: 1
+    repeat: 1
+    type: Action
+    settings:
+      sleepTime: -1
+      timeout: -1
+      sleepTiming: Inherit
+      failureBehaviorType: Inherit
+      takeScreenshotConditionType: Inherit
+    action:
+      id: 1b89acc3-5003-4ae6-a8c1-c1732e09ef45
+      source: System
+    parameterMaps: []
+    conditions: []
+    validations: []
+    contexts: []
+  - id: pKBmsWPwAE6asS13t76J4Q
+    enabled: true
+    invertResult: false
+    order: 2
+    repeat: 1
+    type: Action
+    elementId: Xtk0jLeRz0eHWOu-Lexyyw
+    settings:
+      sleepTime: -1
+      timeout: -1
+      sleepTiming: Inherit
+      failureBehaviorType: Inherit
+      takeScreenshotConditionType: Inherit
+    action:
+      id: 02d572b2-d610-4700-9ad3-40076ddb9807
+      source: System
+    parameterMaps: []
+    conditions: []
+    validations: []
+    contexts: []
+  - id: doBjwGA4k06aTSNAjOPNfQ
+    enabled: true
+    invertResult: false
+    order: 3
+    repeat: 1
+    type: Action
+    elementId: u0mbT_Ke10-Nko1nrzQSYA
+    settings:
+      sleepTime: -1
+      timeout: -1
+      sleepTiming: Inherit
+      failureBehaviorType: Inherit
+      takeScreenshotConditionType: Inherit
+    action:
+      id: 02d572b2-d610-4700-9ad3-40076ddb9807
+      source: System
+    parameterMaps: []
+    conditions: []
+    validations: []
+    contexts: []
+  - id: k0yBddsyzECSZmtXqheyCg
+    enabled: true
+    invertResult: false
+    order: 4
+    repeat: 1
+    type: Action
+    elementId: skdTadXaKEakWJ1ww1wLpw
+    settings:
+      sleepTime: -1
+      timeout: -1
+      sleepTiming: Inherit
+      failureBehaviorType: Inherit
+      takeScreenshotConditionType: Inherit
+    action:
+      id: 02d572b2-d610-4700-9ad3-40076ddb9807
+      source: System
+    parameterMaps: []
+    conditions: []
+    validations: []
+    contexts: []
+  - id: n84M5MnHK02yybSnAvLWdA
+    enabled: true
+    invertResult: false
+    order: 5
+    repeat: 1
+    type: Action
+    elementId: skdTadXaKEakWJ1ww1wLpw
+    settings:
+      sleepTime: -1
+      timeout: -1
+      sleepTiming: Inherit
+      failureBehaviorType: Inherit
+      takeScreenshotConditionType: Inherit
+    action:
+      id: 6f94fdaa-0041-4265-b73b-ecfcbe702d66
+      source: System
+    parameterMaps:
+    - name: keys
+      value: ສະບາຍດີ
+      direction: Input
+    conditions: []
+    validations: []
+    contexts: []
+  - id: iivmUvpd50eeO_3NguTUgQ
+    enabled: true
+    invertResult: false
+    order: 6
+    repeat: 1
+    type: Action
+    settings:
+      sleepTime: -1
+      timeout: -1
+      sleepTiming: Inherit
+      failureBehaviorType: Inherit
+      takeScreenshotConditionType: Inherit
+    action:
+      id: e9ea3d15-4501-488a-a03f-2d876da81f4c
+      source: System
+    parameterMaps:
+    - name: key
+      value: 4
+      direction: Input
+    conditions: []
+    validations: []
+    contexts: []
+  - id: JrIy8csoZEOdHxnRcSpF_A
+    comments: ''
+    enabled: true
+    invertResult: false
+    order: 7
+    repeat: 1
+    type: Action
+    settings:
+      sleepTime: -1
+      timeout: -1
+      sleepTiming: Inherit
+      failureBehaviorType: Inherit
+      takeScreenshotConditionType: Inherit
+    action:
+      id: 5ac5d621-7a53-45a6-94e5-a3348be3969e
+      source: System
+    parameterMaps:
+    - name: milliseconds
+      value: 3000
+      direction: Input
+    conditions: []
+    validations: []
+    contexts: []
+  - id: wp9ly9WpQUa2wiJGheE3mw
+    enabled: true
+    invertResult: false
+    order: 8
+    repeat: 1
+    type: Action
+    elementId: Es5VxyfNqEOvzmJyTJIPDw
+    settings:
+      sleepTime: -1
+      timeout: -1
+      sleepTiming: Inherit
+      failureBehaviorType: Inherit
+      takeScreenshotConditionType: Inherit
+    action:
+      id: 02d572b2-d610-4700-9ad3-40076ddb9807
+      source: System
+    parameterMaps: []
+    conditions: []
+    validations: []
+    contexts: []
+  - id: RAdTcOXgRka9t_L38lsQZw
+    comments: ''
+    enabled: true
+    invertResult: false
+    order: 9
+    repeat: 1
+    type: Action
+    elementId: 7FQ55L-nhUCogHpY0-W0Nw
+    settings:
+      sleepTime: -1
+      timeout: -1
+      sleepTiming: Inherit
+      failureBehaviorType: Inherit
+      takeScreenshotConditionType: Inherit
+    action:
+      id: 85da72d0-c5a4-4587-be33-8cb3b5fa7910
+      source: System
+    parameterMaps:
+    - name: text
+      value: Thoải mái đi
+      direction: Input
+    conditions: []
+    validations: []
+    contexts: []
+  parameters: []
+auxTests: []
+elements:
+- id: skdTadXaKEakWJ1ww1wLpw
+  name: Nhập nội dung văn bản
+  type:
+    id: jUwODgyNjAyNzk2NTk3MTM
+    name: android.widget.EditText
+    source: System
+  locators:
+  - name: XPATH
+    value: //android.widget.EditText[@text = 'Nhập nội dung văn bản']
+    priority: 0
+  - name: XPATH
+    value: //android.widget.EditText
+    priority: 1
+  - name: XPATH
+    value: //android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[2]/android.view.ViewGroup[2]/android.view.ViewGroup[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[2]/android.widget.ScrollView[1]/android.view.ViewGroup[1]/android.view.ViewGroup[3]/android.widget.EditText[1]
+    priority: 2
+- id: Es5VxyfNqEOvzmJyTJIPDw
+  name: DỊCH1
+  type:
+    id: jUwODgyNjAyNzk2NTk3NTE
+    name: android.widget.TextView
+    source: System
+  locators:
+  - name: XPATH
+    value: //android.widget.TextView[@text = 'DỊCH']
+    priority: 0
+  - name: XPATH
+    value: //android.widget.Button/android.widget.TextView
+    priority: 1
+  - name: XPATH
+    value: //android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[2]/android.widget.ScrollView[1]/android.view.ViewGroup[1]/android.view.ViewGroup[5]/android.view.ViewGroup[2]/android.widget.Button[1]/android.widget.TextView[1]
+    priority: 2
+- id: Xtk0jLeRz0eHWOu-Lexyyw
+  name: Anh
+  type:
+    id: jUwODgyNjAyNzk2NTk3NTE
+    name: android.widget.TextView
+    source: System
+  locators:
+  - name: XPATH
+    value: //android.widget.TextView[@text = 'Anh']
+    priority: 0
+  - name: XPATH
+    value: //android.widget.ScrollView/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.widget.TextView
+    priority: 1
+  - name: XPATH
+    value: //android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[2]/android.widget.ScrollView[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.widget.TextView[1]
+    priority: 2
+- id: u0mbT_Ke10-Nko1nrzQSYA
+  name: Lào
+  type:
+    id: jUwODgyNjAyNzk2NTk3NTE
+    name: android.widget.TextView
+    source: System
+  locators:
+  - name: XPATH
+    value: //android.widget.TextView[@text = 'Lào']
+    priority: 0
+  - name: XPATH
+    value: //android.view.ViewGroup[7]/android.widget.TextView
+    priority: 1
+  - name: XPATH
+    value: //android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.widget.ScrollView[1]/android.view.ViewGroup[1]/android.view.ViewGroup[7]/android.widget.TextView[1]
+    priority: 2
+- id: 7FQ55L-nhUCogHpY0-W0Nw
+  name: Thoải mái đi
+  type:
+    id: jUwODgyNjAyNzk2NTk3MTM
+    name: android.widget.EditText
+    source: System
+  locators:
+  - name: XPATH
+    value: //android.widget.EditText[@text = 'Thoải mái đi']
+    priority: 0
+  - name: XPATH
+    value: //android.view.ViewGroup[1]/android.widget.EditText
+    priority: 1
+  - name: XPATH
+    value: //android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[2]/android.widget.ScrollView[1]/android.view.ViewGroup[1]/android.view.ViewGroup[6]/android.view.ViewGroup[1]/android.widget.EditText[1]
+    priority: 2
+projectParameters: []
+addons: []

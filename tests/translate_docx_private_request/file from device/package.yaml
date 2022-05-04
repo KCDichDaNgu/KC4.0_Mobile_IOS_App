@@ -1,19 +1,19 @@
-id: l8k9sXJTNkuPK3S4-pGUtQ
+id: lBQMCTLfjE-DUz7F2-EVdQ
 projectId: eWuoNdHvKEOXGEdhL3Lxpg
 projectName: My first Project
-created: 2022-04-22T13:45:37.5911701Z
-owner: Bùi Minh Hiếu
+created: 2022-04-29T15:31:55.4035480Z
+owner: Nguyễn Sinh Hiển
 protocol: 1
 tests:
 - id: iBD6E1FCCkm2YDAmCwBleQ
   name: test_file_on_device
-  description: sử dụng file ở trên điện thoại để dịch => kq đúng
+  description: sử dụng file ở trên điện thoại để dịch, file có nội dung là Hello everyone => kq đúng
   platform: Android
   type: Mobile
   driverType: Appium_Android
   version: 0.1
   creationDate: 2022-04-22T12:45:50.0000000
-  modificationDate: 2022-04-22T13:42:04.0000000
+  modificationDate: 2022-04-29T15:02:36.0000000
   settings:
     automationAssistant: true
     deviceId: R58M33WNE5H
@@ -50,7 +50,7 @@ tests:
     conditions: []
     validations: []
     contexts: []
-  - id: 6dQ8ZcRBGESlcgymh1kG0Q
+  - id: MQXe04GkJECCcho7-33qsQ
     enabled: true
     invertResult: false
     order: 2
@@ -70,7 +70,7 @@ tests:
     conditions: []
     validations: []
     contexts: []
-  - id: k7IrsQqagUyVsMukPvxeYw
+  - id: jtZwRV_V_EqH9dU08zKORw
     enabled: true
     invertResult: false
     order: 3
@@ -90,13 +90,13 @@ tests:
     conditions: []
     validations: []
     contexts: []
-  - id: ZTNtnZBWoEOYITMhumDPKg
+  - id: 5GnMiv3rTU6CqGRLiG1Z3g
     enabled: true
     invertResult: false
     order: 4
     repeat: 1
     type: Action
-    elementId: yFYcV_YUzUyB8IELaEWGcw
+    elementId: _vXAzhgHE0CKoQa6-eZyJw
     settings:
       sleepTime: -1
       timeout: -1
@@ -110,7 +110,7 @@ tests:
     conditions: []
     validations: []
     contexts: []
-  - id: LoTkTqaxgkqOurjdPjXA-g
+  - id: 48hawcfJoEy9kPkGtrT2ng
     enabled: true
     invertResult: false
     order: 5
@@ -127,16 +127,16 @@ tests:
       source: System
     parameterMaps:
     - name: startX
-      value: 535
+      value: 540
       direction: Input
     - name: startY
-      value: 1391
+      value: 1837
       direction: Input
     - name: endX
-      value: 526
+      value: 549
       direction: Input
     - name: endY
-      value: 758
+      value: 1084
       direction: Input
     - name: duration
       value: 300
@@ -144,13 +144,13 @@ tests:
     conditions: []
     validations: []
     contexts: []
-  - id: MM9CtNy-UkS-ht17Fs97-A
+  - id: hG2ciYEUxk2BSnMElVucrQ
     enabled: true
     invertResult: false
     order: 6
     repeat: 1
     type: Action
-    elementId: ZmpP-NLnAEShZmkCfTMKnQ
+    elementId: 82nF4pq19Ui_KjW3-oxNgQ
     settings:
       sleepTime: -1
       timeout: -1
@@ -164,7 +164,7 @@ tests:
     conditions: []
     validations: []
     contexts: []
-  - id: Ak-gjB381EGd5_YyweNGEA
+  - id: 8lp-RECMHEyEBhxOSUiwtA
     enabled: true
     invertResult: false
     order: 7
@@ -184,7 +184,7 @@ tests:
     conditions: []
     validations: []
     contexts: []
-  - id: DNq1QXteh0-9ATCGqE0isA
+  - id: 6uUqg37aOUOkQM2aovXrQQ
     enabled: true
     invertResult: false
     order: 8
@@ -204,33 +204,13 @@ tests:
     conditions: []
     validations: []
     contexts: []
-  - id: B8bEBDfWqEet3nmGUhDWRQ
+  - id: dNm7feDYYkWAz3_6d3PZew
     enabled: true
     invertResult: false
     order: 9
     repeat: 1
     type: Action
     elementId: 14VU0Kv5DE-lfH3aTobYCw
-    settings:
-      sleepTime: -1
-      timeout: -1
-      sleepTiming: Inherit
-      failureBehaviorType: Inherit
-      takeScreenshotConditionType: Inherit
-    action:
-      id: 02d572b2-d610-4700-9ad3-40076ddb9807
-      source: System
-    parameterMaps: []
-    conditions: []
-    validations: []
-    contexts: []
-  - id: z6BRJgSaB0qUOaBwljFUxg
-    enabled: true
-    invertResult: false
-    order: 10
-    repeat: 1
-    type: Action
-    elementId: XHUYc3dzl0aPki-_bsL4Nw
     settings:
       sleepTime: -1
       timeout: -1
@@ -276,25 +256,6 @@ elements:
   - name: XPATH
     value: //android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[2]/android.widget.ScrollView[1]/android.view.ViewGroup[1]/android.view.ViewGroup[5]/android.view.ViewGroup[2]/android.widget.Button[1]/android.widget.TextView[1]
     priority: 2
-- id: XHUYc3dzl0aPki-_bsL4Nw
-  name: Bạn có muốn tải target_file.docx ( (9...
-  type:
-    id: jUwODgyNjAyNzk2NTk3NTE
-    name: android.widget.TextView
-    source: System
-  locators:
-  - name: ID
-    value: com.android.chrome:id/message
-    priority: 0
-  - name: XPATH
-    value: //android.widget.TextView[@text = 'Bạn có muốn tải target_file.docx ( (9,54 KB)) xuống lần nữa?']
-    priority: 1
-  - name: XPATH
-    value: //android.widget.ScrollView//android.widget.TextView
-    priority: 2
-  - name: XPATH
-    value: //android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.FrameLayout[3]/android.widget.LinearLayout[1]/android.widget.ScrollView[1]/android.widget.LinearLayout[1]/android.widget.TextView[1]
-    priority: 3
 - id: h0r3tVawIEaHh-yG5veBew
   name: Chọn tài liệu
   type:
@@ -327,6 +288,22 @@ elements:
   - name: XPATH
     value: //android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/androidx.drawerlayout.widget.DrawerLayout[1]/android.view.ViewGroup[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.widget.ImageButton[1]
     priority: 2
+- id: _vXAzhgHE0CKoQa6-eZyJw
+  name: Minh Hiếu
+  type:
+    id: jUwODgyNjAyNzk2NTk3NTE
+    name: android.widget.TextView
+    source: System
+  locators:
+  - name: XPATH
+    value: //android.widget.TextView[@text = 'Minh Hiếu']
+    priority: 0
+  - name: XPATH
+    value: //android.widget.LinearLayout[4]//android.widget.TextView
+    priority: 1
+  - name: XPATH
+    value: //android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/androidx.drawerlayout.widget.DrawerLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.ListView[1]/android.widget.LinearLayout[4]/android.widget.LinearLayout[1]/android.widget.TextView[1]
+    priority: 2
 - id: 14VU0Kv5DE-lfH3aTobYCw
   name: Ấn vào đây để tải tài liệu tiếng Việt
   type:
@@ -343,24 +320,8 @@ elements:
   - name: XPATH
     value: //android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup[2]/android.widget.ScrollView[1]/android.view.ViewGroup[1]/android.view.ViewGroup[6]/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.widget.TextView[1]
     priority: 2
-- id: yFYcV_YUzUyB8IELaEWGcw
-  name: Minh Hiếu1
-  type:
-    id: jUwODgyNjAyNzk2NTk3NTE
-    name: android.widget.TextView
-    source: System
-  locators:
-  - name: XPATH
-    value: //android.widget.LinearLayout/android.widget.LinearLayout/android.widget.TextView[@text = 'Minh Hiếu']
-    priority: 0
-  - name: XPATH
-    value: //android.widget.LinearLayout[4]//android.widget.TextView
-    priority: 1
-  - name: XPATH
-    value: //android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/androidx.drawerlayout.widget.DrawerLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.ListView[1]/android.widget.LinearLayout[4]/android.widget.LinearLayout[1]/android.widget.TextView[1]
-    priority: 2
-- id: ZmpP-NLnAEShZmkCfTMKnQ
-  name: Download1
+- id: 82nF4pq19Ui_KjW3-oxNgQ
+  name: Download2
   type:
     id: jUwODgyNjAyNzk2NTk3NTE
     name: android.widget.TextView
@@ -370,10 +331,10 @@ elements:
     value: //android.widget.TextView[@text = 'Download']
     priority: 0
   - name: XPATH
-    value: //android.widget.FrameLayout[14]//android.widget.TextView
+    value: //android.widget.FrameLayout[24]//android.widget.TextView
     priority: 1
   - name: XPATH
-    value: //android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/androidx.drawerlayout.widget.DrawerLayout[1]/android.view.ViewGroup[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[2]/android.widget.LinearLayout[1]/android.view.ViewGroup[1]/androidx.recyclerview.widget.RecyclerView[1]/android.widget.FrameLayout[14]/com.google.android.material.card.MaterialCardView[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.TextView[1]
+    value: //android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.view.ViewGroup[1]/androidx.drawerlayout.widget.DrawerLayout[1]/android.view.ViewGroup[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout[2]/android.widget.LinearLayout[1]/android.view.ViewGroup[1]/androidx.recyclerview.widget.RecyclerView[1]/android.widget.FrameLayout[24]/com.google.android.material.card.MaterialCardView[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.TextView[1]
     priority: 2
 projectParameters: []
 addons: []
