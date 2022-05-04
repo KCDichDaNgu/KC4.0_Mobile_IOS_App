@@ -1,0 +1,57 @@
+id: abiV-ve8nkqdgQSpi2DwQQ
+projectId: eWuoNdHvKEOXGEdhL3Lxpg
+projectName: My first Project
+created: 2022-04-29T15:38:46.3638198Z
+owner: Minh Hiếu Bùi
+protocol: 1
+tests:
+- id: 14PfOrYYvkeDIQkiIEP1Xg
+  name: file has about 100 words
+  description: ''
+  platform: Android
+  type: Mobile
+  driverType: Appium_Android
+  version: 0.1
+  creationDate: 2022-04-29T15:37:55.0000000
+  modificationDate: 2022-04-29T15:37:57.0000000
+  settings:
+    automationAssistant: true
+    deviceId: R58M33WNE5H
+    appId: HCB5-jLBIUO5-rgNsg0_fw
+    stepSleepTime: 500
+    stepTimeout: 15000
+    stepSleepTiming: Before
+    stepFailureBehaviorType: Abort
+    stepTakeScreenshotConditionType: Failure
+  application:
+    id: HCB5-jLBIUO5-rgNsg0_fw
+    androidActivity: com.expotranslationuet.MainActivity
+    androidPackage: com.expotranslationuet
+    name: expo_translationUET
+    platform: Android
+  steps:
+  - id: u00AA_rVJUWJO3A9BeYZ7g
+    comments: Clear application data and restart (Auto-generated)
+    enabled: true
+    invertResult: false
+    order: 1
+    repeat: 1
+    type: Action
+    settings:
+      sleepTime: -1
+      timeout: -1
+      sleepTiming: Inherit
+      failureBehaviorType: Inherit
+      takeScreenshotConditionType: Inherit
+    action:
+      id: 1b89acc3-5003-4ae6-a8c1-c1732e09ef45
+      source: System
+    parameterMaps: []
+    conditions: []
+    validations: []
+    contexts: []
+  parameters: []
+auxTests: []
+elements: []
+projectParameters: []
+addons: []
